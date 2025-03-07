@@ -7,13 +7,14 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
       direction: rtl;
+      margin: 20px;
       background-color: #f9f9f9;
+      line-height: 1.5;
     }
     h1, h2, h3 {
-      color: #333;
       text-align: center;
+      color: #333;
     }
     .logo {
       display: block;
@@ -34,7 +35,7 @@
     }
     input, select, textarea {
       width: 100%;
-      padding: 8px;
+      padding: 6px;
       margin-top: 5px;
       box-sizing: border-box;
       border: 1px solid #ccc;
@@ -42,6 +43,14 @@
     }
     .inline {
       display: inline-block;
+      margin-right: 10px;
+    }
+    .checkbox-group, .radio-group {
+      margin-top: 5px;
+    }
+    .checkbox-group label, .radio-group label {
+      display: inline;
+      font-weight: normal;
       margin-right: 10px;
     }
     button {
@@ -64,799 +73,600 @@
 <body>
   <!-- شعار المركز -->
   <img src="logo.png" alt="شعار المركز" class="logo">
-  
   <h1>نموذج المقابلة الأولية</h1>
   
-  <!-- استخدام خدمة Formsubmit -->
+  <!-- استخدام Formsubmit لإرسال البيانات إلى البريد -->
   <form action="https://formsubmit.co/info@ynmocenter.com" method="POST">
-    <!-- تعطيل الكابتشا لتبسيط العملية -->
+    <!-- تعطيل الكابتشا لتبسيط الإرسال -->
     <input type="hidden" name="_captcha" value="false">
-
     
     <!-- القسم 1: المعلومات الأولية -->
     <div class="section">
       <h2>المعلومات الأولية</h2>
-      <label for="birthdate">تاريخ الميلاد:</label>
-      <input type="date" id="birthdate" name="birthdate" required>
-      
-      <label for="fullname">الاسم الرباعي:</label>
-      <input type="text" id="fullname" name="fullname" required>
-      
-      <label for="residence_type">نوع السكن:</label>
-      <input type="text" id="residence_type" name="residence_type" required>
-      
-      <label for="neighborhood">الحي:</label>
-      <input type="text" id="neighborhood" name="neighborhood" required>
-      
-      <label for="city">مدينة الإقامة:</label>
-      <input type="text" id="city" name="city" required>
-      
-      <label for="contact_number">رقم التواصل:</label>
-      <input type="tel" id="contact_number" name="contact_number" required>
-      
-      <label for="occupation">المهنة:</label>
-      <input type="text" id="occupation" name="occupation" required>
-      
-      <label for="father_name">اسم الوالد:</label>
-      <input type="text" id="father_name" name="father_name" required>
-      
-      <label for="father_contact">رقم التواصل للوالد:</label>
-      <input type="tel" id="father_contact" name="father_contact" required>
-      
-      <label for="father_occupation">مهنة الوالد:</label>
-      <input type="text" id="father_occupation" name="father_occupation" required>
-      
-      <label for="mother_name">اسم الأم:</label>
-      <input type="text" id="mother_name" name="mother_name" required>
-      
-      <label for="siblings_count">عدد الإخوة:</label>
-      <input type="number" id="siblings_count" name="siblings_count" required>
-      
-      <label for="child_order">ترتيب الطفل:</label>
-      <input type="text" id="child_order" name="child_order" required>
-      
-      <label>هل الطفل مقيم مع الوالدين؟</label>
-      <div class="inline">
-        <input type="radio" id="living_yes" name="living_with_parents" value="نعم" required>
-        <label for="living_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="living_no" name="living_with_parents" value="لا" required>
-        <label for="living_no">لا</label>
-      </div>
-      
-      <label>هل يوجد من يقوم بمشاركة الأسرة بدور الرعاية؟</label>
-      <div class="inline">
-        <input type="radio" id="caregiver_yes" name="caregiver" value="نعم" required>
-        <label for="caregiver_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="caregiver_no" name="caregiver" value="لا" required>
-        <label for="caregiver_no">لا</label>
-      </div>
-      <label for="caregiver_details">إذا كانت الإجابة نعم، يرجى التوضيح:</label>
-      <textarea id="caregiver_details" name="caregiver_details"></textarea>
-      
-      <label>هل تواجه الأسرة أي ضغوطات (اجتماعية/مادية/صحية/قانونية)؟</label>
-      <div class="inline">
-        <input type="radio" id="pressure_yes" name="pressure" value="نعم" required>
-        <label for="pressure_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="pressure_no" name="pressure" value="لا" required>
-        <label for="pressure_no">لا</label>
-      </div>
-      
+      <label>تاريخ الميلاد:
+        <input type="date" name="birthdate" required>
+      </label>
+      <label>الاسم الرباعي:
+        <input type="text" name="fullname" required>
+      </label>
+      <label>نوع السكن:
+        <input type="text" name="residence_type" required>
+      </label>
+      <label>الحي:
+        <input type="text" name="neighborhood" required>
+      </label>
+      <label>مدينة الإقامة:
+        <input type="text" name="city" required>
+      </label>
+      <label>رقم التواصل:
+        <input type="tel" name="contact_number" required>
+      </label>
+      <label>المهنة:
+        <input type="text" name="occupation" required>
+      </label>
+      <label>اسم الوالد:
+        <input type="text" name="father_name" required>
+      </label>
+      <label>رقم التواصل للوالد:
+        <input type="tel" name="father_contact" required>
+      </label>
+      <label>مهنة الوالد:
+        <input type="text" name="father_occupation" required>
+      </label>
+      <label>اسم الأم:
+        <input type="text" name="mother_name" required>
+      </label>
+      <label>عدد الإخوة:
+        <input type="number" name="siblings_count" required>
+      </label>
+      <label>ترتيب الطفل:
+        <input type="text" name="child_order" required>
+      </label>
+      <label>الطفل مقيم مع الوالدين؟
+        <span class="radio-group">
+          <label><input type="radio" name="living_with_parents" value="نعم" required> نعم</label>
+          <label><input type="radio" name="living_with_parents" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يوجد من يقوم بمشاركة الأسرة بدور الرعاية؟
+        <span class="radio-group">
+          <label><input type="radio" name="caregiver" value="نعم" required> نعم</label>
+          <label><input type="radio" name="caregiver" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>وضح:
+        <textarea name="caregiver_details"></textarea>
+      </label>
+      <label>هل تواجه الأسرة أي ضغوطات حالية (اجتماعية/مادية/صحية/قانونية)؟
+        <span class="radio-group">
+          <label><input type="radio" name="family_pressure" value="نعم" required> نعم</label>
+          <label><input type="radio" name="family_pressure" value="لا" required> لا</label>
+        </span>
+      </label>
       <h3>جهات الاتصال في حال الطوارئ</h3>
       <!-- جهة الاتصال 1 -->
-      <label for="emergency_contact1_relationship">صلة القرابة:</label>
-      <input type="text" id="emergency_contact1_relationship" name="emergency_contact1_relationship" required>
-      <label for="emergency_contact1_number">الرقم:</label>
-      <input type="tel" id="emergency_contact1_number" name="emergency_contact1_number" required>
-      <label for="emergency_contact1_name">الاسم:</label>
-      <input type="text" id="emergency_contact1_name" name="emergency_contact1_name" required>
+      <div class="section">
+        <label>صلة القرابة:
+          <input type="text" name="emergency1_relationship" required>
+        </label>
+        <label>الرقم:
+          <input type="tel" name="emergency1_number" required>
+        </label>
+        <label>الاسم:
+          <input type="text" name="emergency1_name" required>
+        </label>
+      </div>
       <!-- جهة الاتصال 2 -->
-      <label for="emergency_contact2_relationship">صلة القرابة (2):</label>
-      <input type="text" id="emergency_contact2_relationship" name="emergency_contact2_relationship">
-      <label for="emergency_contact2_number">الرقم:</label>
-      <input type="tel" id="emergency_contact2_number" name="emergency_contact2_number">
-      <label for="emergency_contact2_name">الاسم:</label>
-      <input type="text" id="emergency_contact2_name" name="emergency_contact2_name">
+      <div class="section">
+        <label>صلة القرابة (2):
+          <input type="text" name="emergency2_relationship">
+        </label>
+        <label>الرقم:
+          <input type="tel" name="emergency2_number">
+        </label>
+        <label>الاسم:
+          <input type="text" name="emergency2_name">
+        </label>
+      </div>
       <!-- جهة الاتصال 3 -->
-      <label for="emergency_contact3_relationship">صلة القرابة (3):</label>
-      <input type="text" id="emergency_contact3_relationship" name="emergency_contact3_relationship">
-      <label for="emergency_contact3_number">الرقم:</label>
-      <input type="tel" id="emergency_contact3_number" name="emergency_contact3_number">
-      <label for="emergency_contact3_name">الاسم:</label>
-      <input type="text" id="emergency_contact3_name" name="emergency_contact3_name">
+      <div class="section">
+        <label>صلة القرابة (3):
+          <input type="text" name="emergency3_relationship">
+        </label>
+        <label>الرقم:
+          <input type="tel" name="emergency3_number">
+        </label>
+        <label>الاسم:
+          <input type="text" name="emergency3_name">
+        </label>
+      </div>
     </div>
     
     <!-- القسم 2: معلومات التطور النمائي -->
     <div class="section">
       <h2>معلومات التطور النمائي</h2>
       <h3>أ. الحمل والولادة</h3>
-      <label for="mother_age">عمر الأم أثناء الحمل:</label>
-      <input type="number" id="mother_age" name="mother_age" required>
-      
-      <label>هل كانت ظروف الحمل طبيعية؟</label>
-      <div class="inline">
-        <input type="radio" id="pregnancy_normal_yes" name="pregnancy_normal" value="نعم" required>
-        <label for="pregnancy_normal_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="pregnancy_normal_no" name="pregnancy_normal" value="لا" required>
-        <label for="pregnancy_normal_no">لا</label>
-      </div>
-      <label for="pregnancy_normal_details">إذا كانت الإجابة لا، يرجى التوضيح:</label>
-      <textarea id="pregnancy_normal_details" name="pregnancy_normal_details"></textarea>
-      
-      <label for="pregnancy_duration">مدة الحمل:</label>
-      <select id="pregnancy_duration" name="pregnancy_duration" required>
-        <option value="">اختر</option>
-        <option value="طبيعية">طبيعية</option>
-        <option value="أقل من الطبيعي">أقل من الطبيعي</option>
-      </select>
-      
-      <label for="mother_attitude">كيف كانت اتجاهات الأم نحو الحمل؟</label>
-      <textarea id="mother_attitude" name="mother_attitude"></textarea>
-      
-      <label>هل احتاج الطفل للحضانة بعد الولادة؟</label>
-      <div class="inline">
-        <input type="radio" id="nursery_yes" name="nursery" value="نعم" required>
-        <label for="nursery_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="nursery_no" name="nursery" value="لا" required>
-        <label for="nursery_no">لا</label>
-      </div>
-      
-      <label for="birth_type">نوع الولادة:</label>
-      <select id="birth_type" name="birth_type" required>
-        <option value="">اختر</option>
-        <option value="طبيعية">طبيعية</option>
-        <option value="قيصرية">قيصرية</option>
-        <option value="متعسرة">متعسرة</option>
-        <option value="مبكرة">مبكرة</option>
-      </select>
-      
-      <label>هل واجه الطفل مشاكل نقص الأكسجين أثناء الولادة؟</label>
-      <div class="inline">
-        <input type="radio" id="oxygen_issue_yes" name="oxygen_issue" value="نعم" required>
-        <label for="oxygen_issue_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="oxygen_issue_no" name="oxygen_issue" value="لا" required>
-        <label for="oxygen_issue_no">لا</label>
-      </div>
-      
+      <label>عمر الأم أثناء الحمل:
+        <input type="number" name="mother_age" required>
+      </label>
+      <label>هل كانت ظروف الحمل طبيعية؟
+        <span class="radio-group">
+          <label><input type="radio" name="pregnancy_normal" value="نعم" required> نعم</label>
+          <label><input type="radio" name="pregnancy_normal" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>إذا كانت الإجابة لا، وضح:
+        <textarea name="pregnancy_normal_details"></textarea>
+      </label>
+      <label>مدة الحمل:
+        <span class="radio-group">
+          <label><input type="radio" name="pregnancy_duration" value="طبيعية" required> طبيعية</label>
+          <label><input type="radio" name="pregnancy_duration" value="أقل من الطبيعي" required> أقل من الطبيعي</label>
+        </span>
+      </label>
+      <label>كيف كانت اتجاهات الأم نحو الحمل؟
+        <textarea name="mother_attitude"></textarea>
+      </label>
+      <label>هل احتاج الطفل للحضانة بعد الولادة؟
+        <span class="radio-group">
+          <label><input type="radio" name="nursery" value="نعم" required> نعم</label>
+          <label><input type="radio" name="nursery" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>نوع الولادة:
+        <span class="radio-group">
+          <label><input type="radio" name="birth_type" value="طبيعية" required> طبيعية</label>
+          <label><input type="radio" name="birth_type" value="قيصرية" required> قيصرية</label>
+          <label><input type="radio" name="birth_type" value="متعسرة" required> متعسرة</label>
+          <label><input type="radio" name="birth_type" value="مبكرة" required> مبكرة</label>
+        </span>
+      </label>
+      <label>هل واجه الطفل مشاكل نقص الأكسجين أثناء الولادة؟
+        <span class="radio-group">
+          <label><input type="radio" name="oxygen_issue" value="نعم" required> نعم</label>
+          <label><input type="radio" name="oxygen_issue" value="لا" required> لا</label>
+        </span>
+      </label>
       <h3>ب. التطور النمائي بعد الولادة</h3>
-      <label>هل تمكن الطفل من الرضاعة الطبيعية؟</label>
-      <div class="inline">
-        <input type="radio" id="breastfeeding_yes" name="breastfeeding" value="نعم" required>
-        <label for="breastfeeding_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="breastfeeding_no" name="breastfeeding" value="لا" required>
-        <label for="breastfeeding_no">لا</label>
-      </div>
-      <label for="breastfeeding_details">إذا كانت الإجابة لا، يرجى التوضيح:</label>
-      <textarea id="breastfeeding_details" name="breastfeeding_details"></textarea>
-      
+      <label>هل تمكن الطفل من الرضاعة الطبيعية؟
+        <span class="radio-group">
+          <label><input type="radio" name="breastfeeding" value="نعم" required> نعم</label>
+          <label><input type="radio" name="breastfeeding" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>إذا كانت الإجابة لا، وضح:
+        <textarea name="breastfeeding_details"></textarea>
+      </label>
       <h4>الفحوصات الطبية بعد الولادة</h4>
-      <h5>فحص السمع</h5>
-      <label for="hearing_date">تاريخ التقييم:</label>
-      <input type="date" id="hearing_date" name="hearing_date">
-      <label for="hearing_issue">المشكلة إن وجدت:</label>
-      <textarea id="hearing_issue" name="hearing_issue"></textarea>
-      
-      <h5>فحص النظر</h5>
-      <label for="vision_date">تاريخ التقييم:</label>
-      <input type="date" id="vision_date" name="vision_date">
-      <label for="vision_issue">المشكلة إن وجدت:</label>
-      <textarea id="vision_issue" name="vision_issue"></textarea>
-      
-      <h5>تخطيط الدماغ</h5>
-      <label for="brain_date">تاريخ التقييم:</label>
-      <input type="date" id="brain_date" name="brain_date">
-      <label for="brain_issue">المشكلة إن وجدت:</label>
-      <textarea id="brain_issue" name="brain_issue"></textarea>
-      
-      <label for="development_milestones">توضيح العمر الذي ظهرت فيه معالم النمو (الحبو، الزحف، التدحرج، التسنين، التقاط الأدوات وإفلاتها، المشي، الكلام، المناغاة، الأكل):</label>
-      <textarea id="development_milestones" name="development_milestones" required></textarea>
+      <label>فحص السمع - تاريخ التقييم:
+        <input type="date" name="hearing_date">
+      </label>
+      <label>فحص السمع - المشكلة إن وجدت:
+        <textarea name="hearing_issue"></textarea>
+      </label>
+      <label>فحص النظر - تاريخ التقييم:
+        <input type="date" name="vision_date">
+      </label>
+      <label>فحص النظر - المشكلة إن وجدت:
+        <textarea name="vision_issue"></textarea>
+      </label>
+      <label>تخطيط الدماغ - تاريخ التقييم:
+        <input type="date" name="brain_date">
+      </label>
+      <label>تخطيط الدماغ - المشكلة إن وجدت:
+        <textarea name="brain_issue"></textarea>
+      </label>
+      <label>يرجى توضيح العمر الذي ظهرت فيه معالم النمو (الحبو، الزحف، التدحرج، التسنين، التقاط الأدوات وإفلاتها، المشي، الكلام، المناغاة، الأكل):
+        <textarea name="development_milestones"></textarea>
+      </label>
     </div>
     
     <!-- القسم 3: معلومات الجانب الطبي -->
     <div class="section">
       <h2>معلومات الجانب الطبي</h2>
-      <label>هل تلقى الطفل التطعيمات كاملة؟</label>
-      <div class="inline">
-        <input type="radio" id="vaccinations_yes" name="vaccinations" value="نعم" required>
-        <label for="vaccinations_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="vaccinations_no" name="vaccinations" value="لا" required>
-        <label for="vaccinations_no">لا</label>
-      </div>
-      
-      <label>هل يعاني الطفل من أمراض مزمنة (مثل: سكر، صرع، أنيميا، ربو...)؟</label>
-      <div class="inline">
-        <input type="radio" id="chronic_yes" name="chronic" value="نعم" required>
-        <label for="chronic_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="chronic_no" name="chronic" value="لا" required>
-        <label for="chronic_no">لا</label>
-      </div>
-      <label for="chronic_details">إذا كانت الإجابة نعم، يرجى التوضيح:</label>
-      <textarea id="chronic_details" name="chronic_details"></textarea>
-      
-      <label>هل يعاني الطفل من حساسية تجاه أي نوع من أنواع الطعام؟</label>
-      <div class="inline">
-        <input type="radio" id="allergy_yes" name="allergy" value="نعم" required>
-        <label for="allergy_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="allergy_no" name="allergy" value="لا" required>
-        <label for="allergy_no">لا</label>
-      </div>
-      
-      <label>هل يتناول الطفل أي نوع من الأدوية أو المكملات الغذائية؟</label>
-      <div class="inline">
-        <input type="radio" id="medication_yes" name="medication" value="نعم" required>
-        <label for="medication_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="medication_no" name="medication" value="لا" required>
-        <label for="medication_no">لا</label>
-      </div>
-      <label for="medication_dose">الجرعة (إن كانت الإجابة نعم):</label>
-      <input type="text" id="medication_dose" name="medication_dose">
-      <label for="medication_frequency">التكرار (إن كانت الإجابة نعم):</label>
-      <input type="text" id="medication_frequency" name="medication_frequency">
-      
-      <label>هل يعاني الطفل من تكرار بعض المشاكل الطبية (مثل: اضطرابات الإخراج، طفح جلدي، ألم الأسنان، التهاب الأذن)؟</label>
-      <div class="inline">
-        <input type="radio" id="medical_recurrence_yes" name="medical_recurrence" value="نعم" required>
-        <label for="medical_recurrence_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="medical_recurrence_no" name="medical_recurrence" value="لا" required>
-        <label for="medical_recurrence_no">لا</label>
-      </div>
+      <label>هل تلقى الطفل التطعيمات كاملة؟
+        <span class="radio-group">
+          <label><input type="radio" name="vaccinations" value="نعم" required> نعم</label>
+          <label><input type="radio" name="vaccinations" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يعاني الطفل من أمراض مزمنة (مثل سكر، صرع، أنيميا، ربو...)؟
+        <span class="radio-group">
+          <label><input type="radio" name="chronic" value="نعم" required> نعم</label>
+          <label><input type="radio" name="chronic" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>إذا كانت الإجابة نعم، يرجى التوضيح:
+        <textarea name="chronic_details"></textarea>
+      </label>
+      <label>هل يعاني الطفل من حساسية تجاه أي نوع من أنواع الطعام؟
+        <span class="radio-group">
+          <label><input type="radio" name="allergy" value="نعم" required> نعم</label>
+          <label><input type="radio" name="allergy" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتناول الطفل أي نوع من الأدوية أو المكملات الغذائية؟
+        <span class="radio-group">
+          <label><input type="radio" name="medication" value="نعم" required> نعم</label>
+          <label><input type="radio" name="medication" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>إذا كانت الإجابة نعم، اذكر الجرعة:
+        <input type="text" name="medication_dose">
+      </label>
+      <label>وذكر التكرار:
+        <input type="text" name="medication_frequency">
+      </label>
+      <label>هل يعاني الطفل من تكرار بعض المشاكل الطبية (اضطرابات الإخراج، طفح جلدي، ألم الأسنان، التهاب الأذن)؟
+        <span class="radio-group">
+          <label><input type="radio" name="medical_recurrence" value="نعم" required> نعم</label>
+          <label><input type="radio" name="medical_recurrence" value="لا" required> لا</label>
+        </span>
+      </label>
     </div>
     
     <!-- القسم 4: معلومات التشخيص والقياس النفسي -->
     <div class="section">
       <h2>معلومات التشخيص والقياس النفسي</h2>
-      <label for="diagnosis_date">تاريخ التشخيص (إن وجد):</label>
-      <input type="date" id="diagnosis_date" name="diagnosis_date">
-      
-      <label for="diagnosis_agency">جهة التشخيص:</label>
-      <input type="text" id="diagnosis_agency" name="diagnosis_agency">
-      
-      <label>هل سبق تشخيص الطفل؟</label>
-      <div class="inline">
-        <input type="radio" id="diagnosed_yes" name="diagnosed" value="نعم" required>
-        <label for="diagnosed_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="diagnosed_no" name="diagnosed" value="لا" required>
-        <label for="diagnosed_no">لا</label>
-      </div>
-      
-      <label for="diagnostic_scales">المقاييس التي تم تطبيقها والنتائج السابقة:</label>
-      <textarea id="diagnostic_scales" name="diagnostic_scales"></textarea>
+      <label>تاريخ التشخيص (إن وجد):
+        <input type="date" name="diagnosis_date">
+      </label>
+      <label>جهة التشخيص:
+        <input type="text" name="diagnosis_agency">
+      </label>
+      <label>هل سبق تشخيص الطفل؟
+        <span class="radio-group">
+          <label><input type="radio" name="diagnosed" value="نعم" required> نعم</label>
+          <label><input type="radio" name="diagnosed" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>المقاييس التي تم تطبيقها والنتائج السابقة:
+        <textarea name="diagnostic_scales"></textarea>
+      </label>
     </div>
     
     <!-- القسم 5: معلومات حول الشكوى الأساسية -->
     <div class="section">
       <h2>معلومات حول الشكوى الأساسية</h2>
-      <label for="primary_complaint">ما هي الشكوى الأساسية التي تتطلب التدخل؟</label>
-      <textarea id="primary_complaint" name="primary_complaint" required></textarea>
-      
-      <label>هل لوحظت مشكلة مشابهة في الأسرة؟</label>
-      <div class="inline">
-        <input type="radio" id="family_issue_yes" name="family_issue" value="نعم" required>
-        <label for="family_issue_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="family_issue_no" name="family_issue" value="لا" required>
-        <label for="family_issue_no">لا</label>
-      </div>
-      <label for="family_issue_details">إذا كانت الإجابة نعم، يرجى توضيح صلة القرابة:</label>
-      <textarea id="family_issue_details" name="family_issue_details"></textarea>
-      
-      <label>هل سبق وأجريت تدخلات علاجية للتعامل مع هذه المشكلة؟</label>
-      <div class="inline">
-        <input type="radio" id="previous_intervention_yes" name="previous_intervention" value="نعم" required>
-        <label for="previous_intervention_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="previous_intervention_no" name="previous_intervention" value="لا" required>
-        <label for="previous_intervention_no">لا</label>
-      </div>
+      <label>الشكوى الأساسية التي تتطلب التدخل:
+        <textarea name="primary_complaint" required></textarea>
+      </label>
+      <label>هل لوحظت مشكلة مشابهة في الأسرة؟
+        <span class="radio-group">
+          <label><input type="radio" name="family_issue" value="نعم" required> نعم</label>
+          <label><input type="radio" name="family_issue" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>إذا كانت الإجابة نعم، يرجى توضيح صلة القرابة:
+        <textarea name="family_issue_details"></textarea>
+      </label>
+      <label>هل سبق وأجريت تدخلات علاجية للتعامل مع هذه المشكلة؟
+        <span class="radio-group">
+          <label><input type="radio" name="previous_intervention" value="نعم" required> نعم</label>
+          <label><input type="radio" name="previous_intervention" value="لا" required> لا</label>
+        </span>
+      </label>
     </div>
     
     <!-- القسم 6: معلومات طريقة تواصل الطفل -->
     <div class="section">
       <h2>معلومات طريقة تواصل الطفل</h2>
-      <label for="communication_style">كيف يتواصل طفلك عادةً؟ (اختر ما ينطبق):</label>
-      <input type="checkbox" id="communication_aggression" name="communication_style[]" value="العدوان">
-      <label for="communication_aggression">العدوان</label>
-      <input type="checkbox" id="communication_crying" name="communication_style[]" value="البكاء">
-      <label for="communication_crying">البكاء</label>
-      <input type="checkbox" id="communication_gestures" name="communication_style[]" value="الإيماءات">
-      <label for="communication_gestures">الإيماءات</label>
-      <input type="checkbox" id="communication_images" name="communication_style[]" value="استخدام الصور">
-      <label for="communication_images">استخدام الصور</label>
-      <input type="checkbox" id="communication_push" name="communication_style[]" value="الدفع">
-      <label for="communication_push">الدفع</label>
-      <input type="checkbox" id="communication_pull" name="communication_style[]" value="السحب">
-      <label for="communication_pull">السحب</label>
-      <input type="checkbox" id="communication_pointing" name="communication_style[]" value="الإشارة">
-      <label for="communication_pointing">الإشارة</label>
-      <input type="checkbox" id="communication_verbal" name="communication_style[]" value="تواصل لفظي">
-      <label for="communication_verbal">تواصل لفظي</label>
-      
-      <label for="child_skill">ما هي المهارة المتقنة لدى طفلك؟ (اختر ما ينطبق):</label>
-      <input type="checkbox" id="skill_imitation" name="child_skill[]" value="يقلد الحركات بسهولة">
-      <label for="skill_imitation">يقلد الحركات بسهولة</label>
-      <input type="checkbox" id="skill_sound_imitation" name="child_skill[]" value="يقلد الأصوات">
-      <label for="skill_sound_imitation">يقلد الأصوات (الحروف/المقاطع الصوتية)</label>
-      <input type="checkbox" id="skill_request_reinforcement" name="child_skill[]" value="يطلب المعززات">
-      <label for="skill_request_reinforcement">يطلب المعززات</label>
-      <input type="checkbox" id="skill_request_help" name="child_skill[]" value="يطلب المساعدة">
-      <label for="skill_request_help">يطلب المساعدة</label>
-      <input type="checkbox" id="skill_distance_point" name="child_skill[]" value="يشير إلى شيء مرغوب من مسافة">
-      <label for="skill_distance_point">يشير إلى شيء مرغوب من مسافة</label>
-      <input type="checkbox" id="skill_follow_hand" name="child_skill[]" value="يتبع إشارة اليد">
-      <label for="skill_follow_hand">يتبع إشارة اليد / يشاركك النظر إلى شيء بعيد</label>
-      <input type="checkbox" id="skill_simple_instructions" name="child_skill[]" value="يتبع التعليمات البسيطة">
-      <label for="skill_simple_instructions">يتبع التعليمات البسيطة</label>
-      <input type="checkbox" id="skill_complex_instructions" name="child_skill[]" value="يتبع التعليمات المركبة">
-      <label for="skill_complex_instructions">يتبع التعليمات المركبة</label>
-      <input type="checkbox" id="skill_stop_instructions" name="child_skill[]" value="يتبع التعليمات بالتوقف">
-      <label for="skill_stop_instructions">يتبع التعليمات بالتوقف عن الشيء</label>
-      <input type="checkbox" id="skill_wait_instructions" name="child_skill[]" value="يتبع التعليمات للانتظار">
-      <label for="skill_wait_instructions">يتبع التعليمات للانتظار</label>
-      <input type="checkbox" id="skill_answer_questions" name="child_skill[]" value="يرد على الأسئلة العامة">
-      <label for="skill_answer_questions">يرد على الأسئلة العامة</label>
-      <input type="checkbox" id="skill_spontaneous_comments" name="child_skill[]" value="يصدر تعليقات عفوية">
-      <label for="skill_spontaneous_comments">يصدر تعليقات عفوية</label>
+      <label>كيف يتواصل طفلك عادةً؟ (اختر ما ينطبق):
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="communication_style[]" value="العدوان"> العدوان</label>
+          <label><input type="checkbox" name="communication_style[]" value="البكاء"> البكاء</label>
+          <label><input type="checkbox" name="communication_style[]" value="الإيماءات"> الإيماءات</label>
+          <label><input type="checkbox" name="communication_style[]" value="استخدام الصور"> استخدام الصور</label>
+          <label><input type="checkbox" name="communication_style[]" value="الدفع"> الدفع</label>
+          <label><input type="checkbox" name="communication_style[]" value="السحب"> السحب</label>
+          <label><input type="checkbox" name="communication_style[]" value="الإشارة"> الإشارة</label>
+          <label><input type="checkbox" name="communication_style[]" value="تواصل لفظي"> تواصل لفظي</label>
+        </div>
+      </label>
+      <label>ما هي المهارة المتقنة لدى طفلك؟ (اختر ما ينطبق):
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="child_skill[]" value="يقلد الحركات بسهولة"> يقلد الحركات بسهولة</label>
+          <label><input type="checkbox" name="child_skill[]" value="يقلد الأصوات"> يقلد الأصوات (الحروف/المقاطع الصوتية)</label>
+          <label><input type="checkbox" name="child_skill[]" value="يطلب المعززات"> يطلب المعززات</label>
+          <label><input type="checkbox" name="child_skill[]" value="يطلب المساعدة"> يطلب المساعدة</label>
+          <label><input type="checkbox" name="child_skill[]" value="يشير إلى شيء مرغوب من مسافة"> يشير إلى شيء مرغوب من مسافة</label>
+          <label><input type="checkbox" name="child_skill[]" value="يتبع إشارة اليد"> يتبع إشارة اليد / يشاركك النظر إلى شيء بعيد</label>
+          <label><input type="checkbox" name="child_skill[]" value="يتبع التعليمات البسيطة"> يتبع التعليمات البسيطة</label>
+          <label><input type="checkbox" name="child_skill[]" value="يتبع التعليمات المركبة"> يتبع التعليمات المركبة</label>
+          <label><input type="checkbox" name="child_skill[]" value="يتبع التعليمات بالتوقف"> يتبع التعليمات بالتوقف عن الشيء</label>
+          <label><input type="checkbox" name="child_skill[]" value="يتبع التعليمات للانتظار"> يتبع التعليمات للانتظار</label>
+          <label><input type="checkbox" name="child_skill[]" value="يرد على الأسئلة العامة"> يرد على الأسئلة العامة</label>
+          <label><input type="checkbox" name="child_skill[]" value="يصدر تعليقات عفوية"> يصدر تعليقات عفوية</label>
+        </div>
+      </label>
     </div>
     
     <!-- القسم 7: المظاهر السلوكية -->
     <div class="section">
       <h2>المظاهر السلوكية</h2>
-      <label for="behavior">حدد السلوكيات التي يظهرها طفلك أو التي سبق وظهرت وتوقفت:</label>
-      <input type="checkbox" id="behavior_anger" name="behavior[]" value="نوبات الغضب">
-      <label for="behavior_anger">نوبات الغضب</label>
-      <input type="checkbox" id="behavior_kick" name="behavior[]" value="الركل">
-      <label for="behavior_kick">الركل</label>
-      <input type="checkbox" id="behavior_hit" name="behavior[]" value="الضرب">
-      <label for="behavior_hit">الضرب</label>
-      <input type="checkbox" id="behavior_self_harm" name="behavior[]" value="عض النفس أو الغير">
-      <label for="behavior_self_harm">عض النفس أو الغير</label>
-      <input type="checkbox" id="behavior_scratching" name="behavior[]" value="خدش النفس أو الغير">
-      <label for="behavior_scratching">خدش النفس أو الغير</label>
-      <input type="checkbox" id="behavior_repetitive" name="behavior[]" value="سلوكيات تكرارية">
-      <label for="behavior_repetitive">سلوكيات تكرارية</label>
-      <input type="checkbox" id="behavior_spinning" name="behavior[]" value="الدوران">
-      <label for="behavior_spinning">الدوران</label>
-      <input type="checkbox" id="behavior_walking" name="behavior[]" value="المشي ذهاباً وإياباً">
-      <label for="behavior_walking">المشي ذهاباً وإياباً</label>
-      <input type="checkbox" id="behavior_ear_covering" name="behavior[]" value="تغطية الأذنين">
-      <label for="behavior_ear_covering">تغطية الأذنين</label>
-      <input type="checkbox" id="behavior_teeth_biting" name="behavior[]" value="جز الأسنان">
-      <label for="behavior_teeth_biting">جز الأسنان</label>
-      <input type="checkbox" id="behavior_hair_pulling" name="behavior[]" value="سحب الشعر">
-      <label for="behavior_hair_pulling">سحب الشعر</label>
-      <input type="checkbox" id="behavior_feces_staining" name="behavior[]" value="تلطيخ البراز">
-      <label for="behavior_feces_staining">تلطيخ البراز</label>
-      <input type="checkbox" id="behavior_non_edible" name="behavior[]" value="أكل أدوات غير قابلة للأكل">
-      <label for="behavior_non_edible">أكل أدوات غير قابلة للأكل</label>
-      <input type="checkbox" id="behavior_spitting" name="behavior[]" value="البصق">
-      <label for="behavior_spitting">البصق</label>
-      <input type="checkbox" id="behavior_escape" name="behavior[]" value="الهروب">
-      <label for="behavior_escape">الهروب</label>
-      <input type="checkbox" id="behavior_head_hit" name="behavior[]" value="ضرب الرأس">
-      <label for="behavior_head_hit">ضرب الرأس</label>
-      <input type="checkbox" id="behavior_shouting" name="behavior[]" value="الصراخ">
-      <label for="behavior_shouting">الصراخ</label>
-      <input type="checkbox" id="behavior_skin_picking" name="behavior[]" value="نتف الجلد">
-      <label for="behavior_skin_picking">نتف الجلد</label>
-      <input type="checkbox" id="behavior_other" name="behavior[]" value="أخرى">
-      <label for="behavior_other">أخرى:</label>
-      <input type="text" id="behavior_other_text" name="behavior_other_text">
+      <label>حدد السلوكيات التي يظهرها طفلك أو التي سبق وظهرت وتوقفت:
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="behavior[]" value="نوبات الغضب"> نوبات الغضب</label>
+          <label><input type="checkbox" name="behavior[]" value="الركل"> الركل</label>
+          <label><input type="checkbox" name="behavior[]" value="الضرب"> الضرب</label>
+          <label><input type="checkbox" name="behavior[]" value="عض النفس أو الغير"> عض النفس أو الغير</label>
+          <label><input type="checkbox" name="behavior[]" value="خدش النفس أو الغير"> خدش النفس أو الغير</label>
+          <label><input type="checkbox" name="behavior[]" value="سلوكيات تكرارية"> سلوكيات تكرارية</label>
+          <label><input type="checkbox" name="behavior[]" value="الدوران"> الدوران</label>
+          <label><input type="checkbox" name="behavior[]" value="المشي ذهاباً وإياباً"> المشي ذهاباً وإياباً</label>
+          <label><input type="checkbox" name="behavior[]" value="تغطية الأذنين"> تغطية الأذنين</label>
+          <label><input type="checkbox" name="behavior[]" value="جز الأسنان"> جز الأسنان</label>
+          <label><input type="checkbox" name="behavior[]" value="سحب الشعر"> سحب الشعر</label>
+          <label><input type="checkbox" name="behavior[]" value="تلطيخ البراز"> تلطيخ البراز</label>
+          <label><input type="checkbox" name="behavior[]" value="أكل أدوات غير قابلة للأكل"> أكل أدوات غير قابلة للأكل</label>
+          <label><input type="checkbox" name="behavior[]" value="البصق"> البصق</label>
+          <label><input type="checkbox" name="behavior[]" value="الهروب"> الهروب</label>
+          <label><input type="checkbox" name="behavior[]" value="ضرب الرأس"> ضرب الرأس</label>
+          <label><input type="checkbox" name="behavior[]" value="الصراخ"> الصراخ</label>
+          <label><input type="checkbox" name="behavior[]" value="نتف الجلد"> نتف الجلد</label>
+          <label>أخرى:
+            <input type="text" name="behavior_other_text">
+          </label>
+        </div>
+      </label>
     </div>
     
     <!-- القسم 8: المعالجة الحسية -->
     <div class="section">
       <h2>المعالجة الحسية</h2>
-      <label for="sensory_processing">حدد كل ما ينطبق من المظاهر التالية:</label>
-      <input type="checkbox" id="sensory_routine_change" name="sensory_processing[]" value="ينزعج من تغيير الروتين">
-      <label for="sensory_routine_change">ينزعج من تغيير الروتين</label>
-      <input type="checkbox" id="sensory_easy_frustration" name="sensory_processing[]" value="يغضب معظم الوقت ولا يمكن تهدئته">
-      <label for="sensory_easy_frustration">يغضب معظم الوقت ولا يمكن تهدئته</label>
-      <input type="checkbox" id="sensory_poor_planning" name="sensory_processing[]" value="سوء تخطيط وتنظيم السلوك">
-      <label for="sensory_poor_planning">سوء تخطيط وتنظيم السلوك</label>
-      <input type="checkbox" id="sensory_difficulty_tolerating" name="sensory_processing[]" value="صعوبة تحمل الإحباط">
-      <label for="sensory_difficulty_tolerating">صعوبة تحمل الإحباط</label>
-      <input type="checkbox" id="sensory_unresponsive" name="sensory_processing[]" value="عدم إظهار إدراك للمثيرات الحسية">
-      <label for="sensory_unresponsive">عدم إظهار إدراك للمثيرات الحسية</label>
-      <input type="checkbox" id="sensory_no_touch" name="sensory_processing[]" value="يرفض الاستجابة للمس والتواصل البدني">
-      <label for="sensory_no_touch">يرفض الاستجابة للمس والتواصل البدني</label>
-      <input type="checkbox" id="sensory_toe_walking" name="sensory_processing[]" value="يمشي على أطراف الأصابع">
-      <label for="sensory_toe_walking">يمشي على أطراف الأصابع</label>
-      <input type="checkbox" id="sensory_weak_muscles" name="sensory_processing[]" value="عضلاته ضعيفة">
-      <label for="sensory_weak_muscles">عضلاته ضعيفة</label>
-      <input type="checkbox" id="sensory_sleep_difficulty" name="sensory_processing[]" value="يجد صعوبة في الدخول في النوم">
-      <label for="sensory_sleep_difficulty">يجد صعوبة في الدخول في النوم</label>
-      <input type="checkbox" id="sensory_food_texture" name="sensory_processing[]" value="يرفض لون معين/قوام معين/صعوبة في المضغ أو تقبل الطعام">
-      <label for="sensory_food_texture">يرفض لون معين/قوام معين/صعوبة في المضغ أو تقبل الطعام</label>
-      <input type="checkbox" id="sensory_high_energy" name="sensory_processing[]" value="يزداد حماسًا مع ألعاب الحركة">
-      <label for="sensory_high_energy">يزداد حماسًا مع ألعاب الحركة</label>
-      <input type="checkbox" id="sensory_strong_pressure" name="sensory_processing[]" value="يميل للألعاب التي تتطلب ضغطًا شديدًا">
-      <label for="sensory_strong_pressure">يميل للألعاب التي تتطلب ضغطًا شديدًا</label>
-      <input type="checkbox" id="sensory_climbing" name="sensory_processing[]" value="يتسلق ويميل بجسمه من الأماكن المرتفعة">
-      <label for="sensory_climbing">يتسلق ويميل بجسمه من الأماكن المرتفعة</label>
-      <input type="checkbox" id="sensory_noise_reactivity" name="sensory_processing[]" value="ينفعل عند سماع الأصوات العالية">
-      <label for="sensory_noise_reactivity">ينفعل عند سماع الأصوات العالية</label>
-      <input type="checkbox" id="sensory_hand_dirty" name="sensory_processing[]" value="لا يلاحظ اتساخ اليدين">
-      <label for="sensory_hand_dirty">لا يلاحظ اتساخ اليدين</label>
-      <input type="checkbox" id="sensory_excessive_saliva" name="sensory_processing[]" value="يسيل اللعاب بشكل مفرط">
-      <label for="sensory_excessive_saliva">يسيل اللعاب بشكل مفرط</label>
-      <input type="checkbox" id="sensory_water_issue" name="sensory_processing[]" value="يرفض أو يتعلق بالماء">
-      <label for="sensory_water_issue">يرفض أو يتعلق بالماء</label>
+      <label>حدد كل ما ينطبق من المظاهر التالية:
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="sensory_processing[]" value="ينزعج من تغيير الروتين"> ينزعج من تغيير الروتين</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يغضب معظم الوقت ولا يمكن تهدئته"> يغضب معظم الوقت ولا يمكن تهدئته</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="سوء تخطيط وتنظيم السلوك"> سوء تخطيط وتنظيم السلوك</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="صعوبة تحمل الإحباط"> صعوبة تحمل الإحباط</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="عدم إظهار إدراك للمثيرات الحسية"> عدم إظهار إدراك للمثيرات الحسية</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يرفض الاستجابة للمس والتواصل البدني"> يرفض الاستجابة للمس والتواصل البدني</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يمشي على أطراف الأصابع"> يمشي على أطراف الأصابع</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="عضلاته ضعيفة"> عضلاته ضعيفة</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يجد صعوبة في الدخول في النوم"> يجد صعوبة في الدخول في النوم</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يرفض لون معين/قوام معين/صعوبة في المضغ أو تقبل الطعام"> يرفض لون معين/قوام معين/صعوبة في المضغ أو تقبل الطعام</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يزداد حماسًا مع ألعاب الحركة"> يزداد حماسًا مع ألعاب الحركة</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يميل للألعاب التي تتطلب ضغطًا شديدًا"> يميل للألعاب التي تتطلب ضغطًا شديدًا</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يتسلق ويميل بجسمه من الأماكن المرتفعة"> يتسلق ويميل بجسمه من الأماكن المرتفعة</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="ينفعل عند سماع الأصوات العالية"> ينفعل عند سماع الأصوات العالية</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="لا يلاحظ اتساخ اليدين"> لا يلاحظ اتساخ اليدين</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يسيل اللعاب بشكل مفرط"> يسيل اللعاب بشكل مفرط</label>
+          <label><input type="checkbox" name="sensory_processing[]" value="يرفض أو يتعلق بالماء"> يرفض أو يتعلق بالماء</label>
+        </div>
+      </label>
     </div>
     
     <!-- القسم 9: السلوكيات الاجتماعية -->
     <div class="section">
       <h2>السلوكيات الاجتماعية</h2>
-      <label>هل يتقبل وجود الأشخاص بجانبه؟</label>
-      <div class="inline">
-        <input type="radio" id="social_accept_yes" name="social_accept" value="نعم" required>
-        <label for="social_accept_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_accept_no" name="social_accept" value="لا" required>
-        <label for="social_accept_no">لا</label>
-      </div>
-      
-      <label>هل يدرك الطفل غياب الوالدين؟</label>
-      <div class="inline">
-        <input type="radio" id="social_parent_absence_yes" name="social_parent_absence" value="نعم" required>
-        <label for="social_parent_absence_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_parent_absence_no" name="social_parent_absence" value="لا" required>
-        <label for="social_parent_absence_no">لا</label>
-      </div>
-      
-      <label>هل يظهر انفعالات تجاه الأشخاص الآخرين؟</label>
-      <div class="inline">
-        <input type="radio" id="social_emotion_yes" name="social_emotion" value="نعم" required>
-        <label for="social_emotion_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_emotion_no" name="social_emotion" value="لا" required>
-        <label for="social_emotion_no">لا</label>
-      </div>
-      
-      <label>هل يتفاعل مع لعب الكبار معه؟</label>
-      <div class="inline">
-        <input type="radio" id="social_adult_play_yes" name="social_adult_play" value="نعم" required>
-        <label for="social_adult_play_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_adult_play_no" name="social_adult_play" value="لا" required>
-        <label for="social_adult_play_no">لا</label>
-      </div>
-      
-      <label>هل يلعب مع إخوته ويتفاعل معهم؟</label>
-      <div class="inline">
-        <input type="radio" id="social_sibling_play_yes" name="social_sibling_play" value="نعم" required>
-        <label for="social_sibling_play_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_sibling_play_no" name="social_sibling_play" value="لا" required>
-        <label for="social_sibling_play_no">لا</label>
-      </div>
-      
-      <label>هل يرد التحية ويبادر بها؟</label>
-      <div class="inline">
-        <input type="radio" id="social_greeting_yes" name="social_greeting" value="نعم" required>
-        <label for="social_greeting_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_greeting_no" name="social_greeting" value="لا" required>
-        <label for="social_greeting_no">لا</label>
-      </div>
-      
-      <label>هل يلعب مع أقرانه ويتبع تعليمات اللعب؟</label>
-      <div class="inline">
-        <input type="radio" id="social_peer_play_yes" name="social_peer_play" value="نعم" required>
-        <label for="social_peer_play_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_peer_play_no" name="social_peer_play" value="لا" required>
-        <label for="social_peer_play_no">لا</label>
-      </div>
-      
-      <label>هل يتواجد مع الأقران في منطقة اللعب ولكنه لا يشارك معهم؟</label>
-      <div class="inline">
-        <input type="radio" id="social_peer_presence_yes" name="social_peer_presence" value="نعم" required>
-        <label for="social_peer_presence_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_peer_presence_no" name="social_peer_presence" value="لا" required>
-        <label for="social_peer_presence_no">لا</label>
-      </div>
-      
-      <label>هل يشارك في الألعاب التظاهرية (ألعاب الخيال)؟</label>
-      <div class="inline">
-        <input type="radio" id="social_imaginative_play_yes" name="social_imaginative_play" value="نعم" required>
-        <label for="social_imaginative_play_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_imaginative_play_no" name="social_imaginative_play" value="لا" required>
-        <label for="social_imaginative_play_no">لا</label>
-      </div>
-      
-      <label>هل يقلد طريقة اللعب عند مشاهدة الأقران بدون توجيه؟</label>
-      <div class="inline">
-        <input type="radio" id="social_imitation_without_yes" name="social_imitation_without" value="نعم" required>
-        <label for="social_imitation_without_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_imitation_without_no" name="social_imitation_without" value="لا" required>
-        <label for="social_imitation_without_no">لا</label>
-      </div>
-      
-      <label>هل يقلد طريقة اللعب عند مشاهدة الأقران مع توجيه؟</label>
-      <div class="inline">
-        <input type="radio" id="social_imitation_with_yes" name="social_imitation_with" value="نعم" required>
-        <label for="social_imitation_with_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_imitation_with_no" name="social_imitation_with" value="لا" required>
-        <label for="social_imitation_with_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من التعامل في الأماكن العامة؟</label>
-      <div class="inline">
-        <input type="radio" id="social_public_yes" name="social_public" value="نعم" required>
-        <label for="social_public_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_public_no" name="social_public" value="لا" required>
-        <label for="social_public_no">لا</label>
-      </div>
-      
-      <label>هل يلتزم بالآداب الاجتماعية؟</label>
-      <div class="inline">
-        <input type="radio" id="social_etiquette_yes" name="social_etiquette" value="نعم" required>
-        <label for="social_etiquette_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_etiquette_no" name="social_etiquette" value="لا" required>
-        <label for="social_etiquette_no">لا</label>
-      </div>
-      
-      <label>هل يظهر وعيًا للتغيرات في البيئة الاجتماعية؟</label>
-      <div class="inline">
-        <input type="radio" id="social_awareness_yes" name="social_awareness" value="نعم" required>
-        <label for="social_awareness_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="social_awareness_no" name="social_awareness" value="لا" required>
-        <label for="social_awareness_no">لا</label>
-      </div>
+      <label>هل يتقبل وجود الأشخاص بجانبه؟
+        <span class="radio-group">
+          <label><input type="radio" name="social_presence" value="نعم" required> نعم</label>
+          <label><input type="radio" name="social_presence" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يدرك الطفل غياب الوالدين؟
+        <span class="radio-group">
+          <label><input type="radio" name="parent_absence" value="نعم" required> نعم</label>
+          <label><input type="radio" name="parent_absence" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يظهر انفعالات تجاه الأشخاص الآخرين؟
+        <span class="radio-group">
+          <label><input type="radio" name="social_emotion" value="نعم" required> نعم</label>
+          <label><input type="radio" name="social_emotion" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتفاعل مع لعب الكبار معه؟
+        <span class="radio-group">
+          <label><input type="radio" name="adult_play" value="نعم" required> نعم</label>
+          <label><input type="radio" name="adult_play" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يلعب مع إخوته ويتفاعل معهم؟
+        <span class="radio-group">
+          <label><input type="radio" name="sibling_play" value="نعم" required> نعم</label>
+          <label><input type="radio" name="sibling_play" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يرد التحية ويبادر بها؟
+        <span class="radio-group">
+          <label><input type="radio" name="greeting" value="نعم" required> نعم</label>
+          <label><input type="radio" name="greeting" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يلعب مع أقرانه ويتبع تعليمات اللعب؟
+        <span class="radio-group">
+          <label><input type="radio" name="peer_play" value="نعم" required> نعم</label>
+          <label><input type="radio" name="peer_play" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتواجد مع الأقران في منطقة اللعب ولكنه لا يشارك معهم؟
+        <span class="radio-group">
+          <label><input type="radio" name="peer_presence" value="نعم" required> نعم</label>
+          <label><input type="radio" name="peer_presence" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يشارك في الألعاب التظاهرية (ألعاب الخيال)؟
+        <span class="radio-group">
+          <label><input type="radio" name="imaginative_play" value="نعم" required> نعم</label>
+          <label><input type="radio" name="imaginative_play" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يقلد طريقة اللعب عند مشاهدة الأقران بدون توجيه؟
+        <span class="radio-group">
+          <label><input type="radio" name="imitation_without" value="نعم" required> نعم</label>
+          <label><input type="radio" name="imitation_without" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يقلد طريقة اللعب عند مشاهدة الأقران مع توجيه؟
+        <span class="radio-group">
+          <label><input type="radio" name="imitation_with" value="نعم" required> نعم</label>
+          <label><input type="radio" name="imitation_with" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من التعامل في الأماكن العامة؟
+        <span class="radio-group">
+          <label><input type="radio" name="public_behavior" value="نعم" required> نعم</label>
+          <label><input type="radio" name="public_behavior" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يلتزم بالآداب الاجتماعية؟
+        <span class="radio-group">
+          <label><input type="radio" name="social_etiquette" value="نعم" required> نعم</label>
+          <label><input type="radio" name="social_etiquette" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يظهر وعيًا للتغيرات في البيئة الاجتماعية؟
+        <span class="radio-group">
+          <label><input type="radio" name="social_awareness" value="نعم" required> نعم</label>
+          <label><input type="radio" name="social_awareness" value="لا" required> لا</label>
+        </span>
+      </label>
     </div>
     
     <!-- القسم 10: الرعاية الذاتية -->
     <div class="section">
       <h2>الرعاية الذاتية</h2>
-      <label>هل يتمكن من لبس البنطال/القميص بشكل مستقل؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_dressing_yes" name="self_care_dressing" value="نعم" required>
-        <label for="self_care_dressing_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_dressing_no" name="self_care_dressing" value="لا" required>
-        <label for="self_care_dressing_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من خلع البنطال/القميص بشكل مستقل؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_undressing_yes" name="self_care_undressing" value="نعم" required>
-        <label for="self_care_undressing_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_undressing_no" name="self_care_undressing" value="لا" required>
-        <label for="self_care_undressing_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من فتح/إغلاق الأزرار؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_buttons_yes" name="self_care_buttons" value="نعم" required>
-        <label for="self_care_buttons_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_buttons_no" name="self_care_buttons" value="لا" required>
-        <label for="self_care_buttons_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من فتح/إغلاق السحاب؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_zipper_yes" name="self_care_zipper" value="نعم" required>
-        <label for="self_care_zipper_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_zipper_no" name="self_care_zipper" value="لا" required>
-        <label for="self_care_zipper_no">لا</label>
-      </div>
-      
-      <label>هل يدرك في حال اتساخ الحفاض؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_diaper_yes" name="self_care_diaper" value="نعم" required>
-        <label for="self_care_diaper_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_diaper_no" name="self_care_diaper" value="لا" required>
-        <label for="self_care_diaper_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من القاء جاف لمدة تصل لساعتين متواصلة؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_hold_yes" name="self_care_hold" value="نعم" required>
-        <label for="self_care_hold_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_hold_no" name="self_care_hold" value="لا" required>
-        <label for="self_care_hold_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من تنظيف نفسه بعد استخدام الحمام؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_clean_yes" name="self_care_clean" value="نعم" required>
-        <label for="self_care_clean_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_clean_no" name="self_care_clean" value="لا" required>
-        <label for="self_care_clean_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من الذهاب لدورة المياه ولكنه يحتاج لمساعدة؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_toilet_yes" name="self_care_toilet" value="نعم" required>
-        <label for="self_care_toilet_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_toilet_no" name="self_care_toilet" value="لا" required>
-        <label for="self_care_toilet_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من غسل الأسنان بشكل مستقل؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_brush_yes" name="self_care_brush" value="نعم" required>
-        <label for="self_care_brush_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_brush_no" name="self_care_brush" value="لا" required>
-        <label for="self_care_brush_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من تجفيف الأسنان بشكل مستقل؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_dry_yes" name="self_care_dry" value="نعم" required>
-        <label for="self_care_dry_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_dry_no" name="self_care_dry" value="لا" required>
-        <label for="self_care_dry_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من غسل الوجه واليدين؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_face_hands_yes" name="self_care_face_hands" value="نعم" required>
-        <label for="self_care_face_hands_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_face_hands_no" name="self_care_face_hands" value="لا" required>
-        <label for="self_care_face_hands_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من الأكل بشكل مستقل؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_eating_yes" name="self_care_eating" value="نعم" required>
-        <label for="self_care_eating_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_eating_no" name="self_care_eating" value="لا" required>
-        <label for="self_care_eating_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من الاستحمام بشكل مستقل؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_shower_yes" name="self_care_shower" value="نعم" required>
-        <label for="self_care_shower_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_shower_no" name="self_care_shower" value="لا" required>
-        <label for="self_care_shower_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من التنقل من مكان لآخر بشكل مستقل؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_mobility_yes" name="self_care_mobility" value="نعم" required>
-        <label for="self_care_mobility_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_mobility_no" name="self_care_mobility" value="لا" required>
-        <label for="self_care_mobility_no">لا</label>
-      </div>
-      
-      <label>هل يتمكن من العناية بممتلكاته الشخصية؟</label>
-      <div class="inline">
-        <input type="radio" id="self_care_personal_yes" name="self_care_personal" value="نعم" required>
-        <label for="self_care_personal_yes">نعم</label>
-      </div>
-      <div class="inline">
-        <input type="radio" id="self_care_personal_no" name="self_care_personal" value="لا" required>
-        <label for="self_care_personal_no">لا</label>
-      </div>
+      <label>هل يتمكن من لبس البنطال/القميص بشكل مستقل؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_dressing" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_dressing" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من خلع البنطال/القميص بشكل مستقل؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_undressing" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_undressing" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من فتح/إغلاق الأزرار؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_buttons" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_buttons" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من فتح/إغلاق السحاب؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_zipper" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_zipper" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يدرك في حال اتساخ الحفاض؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_diaper" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_diaper" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من القاء جاف لمدة تصل لساعتين متواصلة؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_hold" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_hold" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من تنظيف نفسه بعد استخدام الحمام؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_clean" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_clean" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من الذهاب لدورة المياه ولكنه يحتاج لمساعدة؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_toilet" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_toilet" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من غسل الأسنان بشكل مستقل؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_brush" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_brush" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من تجفيف الأسنان بشكل مستقل؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_dry" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_dry" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من غسل الوجه واليدين؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_face_hands" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_face_hands" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من الأكل بشكل مستقل؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_eating" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_eating" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من الاستحمام بشكل مستقل؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_shower" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_shower" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من التنقل من مكان لآخر بشكل مستقل؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_mobility" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_mobility" value="لا" required> لا</label>
+        </span>
+      </label>
+      <label>هل يتمكن من العناية بممتلكاته الشخصية؟
+        <span class="radio-group">
+          <label><input type="radio" name="self_care_personal" value="نعم" required> نعم</label>
+          <label><input type="radio" name="self_care_personal" value="لا" required> لا</label>
+        </span>
+      </label>
     </div>
     
     <!-- القسم 11: التدخلات السابقة -->
     <div class="section">
       <h2>التدخلات السابقة</h2>
-      <label for="previous_interventions">وضح التدخلات العلاجية السابقة للطفل (اختر ما ينطبق):</label>
-      <input type="checkbox" id="intervention_speech" name="previous_interventions[]" value="جلسات تخاطب">
-      <label for="intervention_speech">جلسات تخاطب</label>
-      <input type="checkbox" id="intervention_behavior" name="previous_interventions[]" value="تعديل سلوك">
-      <label for="intervention_behavior">تعديل سلوك</label>
-      <input type="checkbox" id="intervention_skill" name="previous_interventions[]" value="تنمية مهارات">
-      <label for="intervention_skill">تنمية مهارات</label>
-      <input type="checkbox" id="intervention_analytic" name="previous_interventions[]" value="تحليل سلوكي">
-      <label for="intervention_analytic">تحليل سلوكي</label>
-      <input type="checkbox" id="intervention_physical" name="previous_interventions[]" value="علاج طبيعي">
-      <label for="intervention_physical">علاج طبيعي</label>
-      <input type="checkbox" id="intervention_occupational" name="previous_interventions[]" value="علاج وظيفي">
-      <label for="intervention_occupational">علاج وظيفي</label>
-      <input type="checkbox" id="intervention_group" name="previous_interventions[]" value="جلسات جماعية">
-      <label for="intervention_group">جلسات جماعية</label>
-      <input type="checkbox" id="intervention_psychological" name="previous_interventions[]" value="جلسات نفسية">
-      <label for="intervention_psychological">جلسات نفسية</label>
-      
-      <label for="intervention_results">وضح النتائج من التدخلات السابقة:</label>
-      <textarea id="intervention_results" name="intervention_results"></textarea>
-      
-      <label for="current_plans">في حال وجود خطط حالية يتم العمل عليها، يرجى توضيحها مع ذكر الجهة القائمة:</label>
-      <textarea id="current_plans" name="current_plans"></textarea>
-      
-      <label for="current_agency">الجهة القائمة:</label>
-      <input type="text" id="current_agency" name="current_agency">
-      
-      <label for="current_agency_contact">رقم التواصل للجهة القائمة:</label>
-      <input type="tel" id="current_agency_contact" name="current_agency_contact">
-      
-      <label for="current_goals">الأهداف الأساسية التي يتم العمل عليها في الفترة الحالية:</label>
-      <textarea id="current_goals" name="current_goals"></textarea>
+      <label>وضح التدخلات العلاجية السابقة للطفل (اختر ما ينطبق):
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="previous_interventions[]" value="جلسات تخاطب"> جلسات تخاطب</label>
+          <label><input type="checkbox" name="previous_interventions[]" value="تعديل سلوك"> تعديل سلوك</label>
+          <label><input type="checkbox" name="previous_interventions[]" value="تنمية مهارات"> تنمية مهارات</label>
+          <label><input type="checkbox" name="previous_interventions[]" value="تحليل سلوكي"> تحليل سلوكي</label>
+          <label><input type="checkbox" name="previous_interventions[]" value="علاج طبيعي"> علاج طبيعي</label>
+          <label><input type="checkbox" name="previous_interventions[]" value="علاج وظيفي"> علاج وظيفي</label>
+          <label><input type="checkbox" name="previous_interventions[]" value="جلسات جماعية"> جلسات جماعية</label>
+          <label><input type="checkbox" name="previous_interventions[]" value="جلسات نفسية"> جلسات نفسية</label>
+        </div>
+      </label>
+      <label>وضح النتائج من التدخلات السابقة:
+        <textarea name="intervention_results"></textarea>
+      </label>
+      <label>في حال وجود خطط حالية يتم العمل عليها، يرجى توضيحها مع ذكر الجهة القائمة:
+        <textarea name="current_plans"></textarea>
+      </label>
+      <label>الجهة القائمة:
+        <input type="text" name="current_agency">
+      </label>
+      <label>رقم التواصل للجهة القائمة:
+        <input type="tel" name="current_agency_contact">
+      </label>
+      <label>الأهداف الأساسية التي يتم العمل عليها في الفترة الحالية:
+        <textarea name="current_goals"></textarea>
+      </label>
     </div>
     
     <!-- القسم 12: توقعات الأسرة -->
     <div class="section">
       <h2>توقعات الأسرة</h2>
-      <label for="family_expectations">حدد الأهداف الأساسية التي ترغب الأسرة بالوصول إليها خلال الثلاثة أشهر القادمة، مرتبة بالأولوية:</label>
-      <textarea id="family_expectations" name="family_expectations" required></textarea>
+      <label>حدد الأهداف الأساسية التي ترغب الأسرة بالوصول إليها خلال الثلاثة أشهر القادمة، مرتبة بالأولوية:
+        <textarea name="family_expectations" required></textarea>
+      </label>
     </div>
     
     <!-- القسم 13: المعززات -->
     <div class="section">
       <h2>المعززات</h2>
-      <label for="reinforcements">وضح المعززات المفضلة للطفل مع ترتيبها وفق مدى فاعليتها:</label>
-      <textarea id="reinforcements" name="reinforcements" required></textarea>
+      <label>وضح المعززات المفضلة للطفل مع ترتيبها وفق مدى فاعليتها:
+        <textarea name="reinforcements" required></textarea>
+      </label>
     </div>
     
     <button type="submit">إرسال</button>
