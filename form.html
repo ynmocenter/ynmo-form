@@ -2,765 +2,772 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>نموذج المقابلة الأولية</title>
+  <!-- تحميل خط Cairo -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --main-bg: #f8f1e5;        /* خلفية كريمية باستيل */
+      --primary-color: #172a3a;  /* لون نص غامق */
+      --secondary-color: #8ac6c1;/* لون ثانوي */
+      --heading-color: #f4b393;  /* لون العناوين */
+      --box-bg: #ffffff;         /* خلفية الأقسام */
+      --border-color: #ccc;      /* لون الإطارات */
+    }
     body {
-      font-family: Arial, sans-serif;
-      direction: rtl;
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--primary-color);
       margin: 20px;
-      background-color: #f9f9f9;
-      line-height: 1.5;
+      line-height: 1.6;
+      direction: rtl;
+      text-align: right;
     }
-    .header {
+    h1 {
       text-align: center;
-      font-size: 22px;
-      font-weight: bold;
+      font-size: 24px;
+      color: var(--heading-color);
       margin-bottom: 20px;
-    }
-    .logo {
-      display: block;
-      margin: 0 auto;
-      max-width: 200px;
     }
     h2 {
       background-color: #eee;
       padding: 5px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border-color);
       text-align: center;
       margin-top: 30px;
+      font-size: 18px;
+    }
+    h3 {
+      text-align: center;
+      font-size: 16px;
+      margin: 15px 0;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 10px auto;
+      max-width: 200px;
+    }
+    /* تنسيق الحقول: الأسئلة فوق الإجابات */
+    .form-field {
+      margin-bottom: 15px;
+    }
+    .form-field label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      text-align: right;
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 8px;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-color);
+      border-radius: 3px;
+      box-sizing: border-box;
+      text-align: right;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+    }
+    .options-group {
+      margin-top: 5px;
+      text-align: right;
+    }
+    .options-group label {
+      display: inline-block;
+      margin-right: 15px;
+      font-weight: normal;
     }
     table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 20px;
+      text-align: right;
     }
     table td, table th {
-      border: 1px solid #000;
+      border: 1px solid var(--border-color);
       padding: 4px 6px;
       vertical-align: top;
       font-size: 14px;
     }
-    input[type="text"],
-    input[type="date"],
-    input[type="number"],
-    input[type="tel"],
-    textarea,
-    select {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 4px;
-      font-size: 14px;
-    }
-    textarea {
-      resize: vertical;
-      min-height: 50px;
-    }
-    .radio-group, .checkbox-group {
-      display: inline-block;
-      margin-right: 10px;
-      font-weight: normal;
+    th {
+      background-color: #eee;
     }
     button {
       display: block;
       width: 100%;
       padding: 12px;
-      font-size: 16px;
+      font-size: 1rem;
       margin-top: 20px;
-      background-color: #007bff;
+      background-color: var(--secondary-color);
       color: #fff;
       border: none;
+      border-radius: 3px;
       cursor: pointer;
     }
     button:hover {
-      background-color: #0056b3;
+      background-color: #6ba7a4;
     }
   </style>
 </head>
 <body>
   <!-- شعار المركز -->
   <img src="logo.png" alt="شعار المركز" class="logo">
-  <div class="header">نموذج المقابلة الأولية</div>
+  <h1>نموذج المقابلة الأولية</h1>
   
-  <!-- استخدام Formsubmit لإرسال البيانات إلى البريد -->
+  <!-- ابدأ النموذج؛ لإرسال البيانات إلكترونيًا استخدم action و method -->
   <form action="https://formsubmit.co/info@ynmocenter.com" method="POST">
-    <!-- تعطيل الكابتشا لتبسيط الإرسال -->
     <input type="hidden" name="_captcha" value="false">
     
-    <!-- القسم الأول: المعلومات الأولية -->
-    <h2>المعلومات الأولية</h2>
-    <table>
-      <tr>
-        <td>تاريخ الميلاد:</td>
-        <td><input type="date" name="birthdate" required></td>
-        <td>الاسم الرباعي:</td>
-        <td><input type="text" name="fullname" required></td>
-      </tr>
-      <tr>
-        <td>نوع السكن:</td>
-        <td><input type="text" name="residence_type" required></td>
-        <td>الحي:</td>
-        <td><input type="text" name="neighborhood" required></td>
-      </tr>
-      <tr>
-        <td>مدينة الإقامة:</td>
-        <td><input type="text" name="city" required></td>
-        <td>رقم التواصل:</td>
-        <td><input type="tel" name="contact_number" required></td>
-      </tr>
-      <tr>
-        <td>المهنة:</td>
-        <td><input type="text" name="occupation" required></td>
-        <td>اسم الوالد:</td>
-        <td><input type="text" name="father_name" required></td>
-      </tr>
-      <tr>
-        <td>رقم التواصل للوالد:</td>
-        <td><input type="tel" name="father_contact" required></td>
-        <td>مهنة الوالد:</td>
-        <td><input type="text" name="father_occupation" required></td>
-      </tr>
-      <tr>
-        <td>اسم الأم:</td>
-        <td><input type="text" name="mother_name" required></td>
-        <td>عدد الإخوة:</td>
-        <td><input type="number" name="siblings_count" required></td>
-      </tr>
-      <tr>
-        <td>ترتيب الطفل:</td>
-        <td colspan="3">
-          <span class="radio-group"><input type="radio" name="child_order_radio" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="child_order_radio" value="لا" required> لا</span>
-          &nbsp; وضح: <input type="text" name="child_order_details">
-        </td>
-      </tr>
-      <tr>
-        <td>الطفل مقيم مع الوالدين:</td>
-        <td colspan="3">
-          <span class="radio-group"><input type="radio" name="living_with_parents" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="living_with_parents" value="لا" required> لا</span>
-        </td>
-      </tr>
-      <tr>
-        <td>هل يوجد من يقوم بمشاركة الأسرة بدور الرعاية؟</td>
-        <td colspan="3">
-          <span class="radio-group"><input type="radio" name="caregiver" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="caregiver" value="لا" required> لا</span>
-          &nbsp; وضح: <input type="text" name="caregiver_details">
-        </td>
-      </tr>
-      <tr>
-        <td>هل تواجه الأسرة أي ضغوطات حالية (اجتماعية/مادية/صحية/قانونية)؟</td>
-        <td colspan="3">
-          <span class="radio-group"><input type="radio" name="family_pressure" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="family_pressure" value="لا" required> لا</span>
-        </td>
-      </tr>
-    </table>
-    <h3>جهات الاتصال في حال الطوارئ</h3>
-    <table>
-      <tr>
-        <th>صلة القرابة</th>
-        <th>الرقم</th>
-        <th>الاسم</th>
-      </tr>
-      <tr>
-        <td><input type="text" name="emergency1_relationship" required></td>
-        <td><input type="tel" name="emergency1_number" required></td>
-        <td><input type="text" name="emergency1_name" required></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="emergency2_relationship"></td>
-        <td><input type="tel" name="emergency2_number"></td>
-        <td><input type="text" name="emergency2_name"></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="emergency3_relationship"></td>
-        <td><input type="tel" name="emergency3_number"></td>
-        <td><input type="text" name="emergency3_name"></td>
-      </tr>
-    </table>
+    <!-- القسم 1: المعلومات الأولية -->
+    <div class="section">
+      <h2>المعلومات الأولية</h2>
+      <table>
+        <tr>
+          <td>تاريخ الميلاد:</td>
+          <td><input type="date" name="birthdate"></td>
+          <td>الاسم الرباعي:</td>
+          <td><input type="text" name="fullname"></td>
+        </tr>
+        <tr>
+          <td>نوع السكن:</td>
+          <td><input type="text" name="residence_type"></td>
+          <td>الحي:</td>
+          <td><input type="text" name="neighborhood"></td>
+        </tr>
+        <tr>
+          <td>مدينة الإقامة:</td>
+          <td><input type="text" name="city"></td>
+          <td>رقم التواصل:</td>
+          <td><input type="tel" name="contact_number"></td>
+        </tr>
+        <tr>
+          <td>المهنة:</td>
+          <td><input type="text" name="occupation"></td>
+          <td>اسم الوالد:</td>
+          <td><input type="text" name="father_name"></td>
+        </tr>
+        <tr>
+          <td>رقم التواصل للوالد:</td>
+          <td><input type="tel" name="father_contact"></td>
+          <td>مهنة الوالد:</td>
+          <td><input type="text" name="father_occupation"></td>
+        </tr>
+        <tr>
+          <td>اسم الأم:</td>
+          <td><input type="text" name="mother_name"></td>
+          <td>عدد الإخوة:</td>
+          <td><input type="number" name="siblings_count"></td>
+        </tr>
+        <tr>
+          <td>ترتيب الطفل:</td>
+          <td colspan="3">
+            ( نعم <input type="radio" name="child_order_radio" value="نعم"> )
+            ( لا <input type="radio" name="child_order_radio" value="لا"> )
+            &nbsp; وضح: <input type="text" name="child_order_details">
+          </td>
+        </tr>
+        <tr>
+          <td>الطفل مقيم مع الوالدين:</td>
+          <td colspan="3">
+            ( نعم <input type="radio" name="living_with_parents" value="نعم"> )
+            ( لا <input type="radio" name="living_with_parents" value="لا"> )
+          </td>
+        </tr>
+        <tr>
+          <td>هل يوجد من يقوم بمشاركة الأسرة بدور الرعاية؟</td>
+          <td colspan="3">
+            ( نعم <input type="radio" name="caregiver" value="نعم"> )
+            ( لا <input type="radio" name="caregiver" value="لا"> )
+            &nbsp; وضح: <input type="text" name="caregiver_details">
+          </td>
+        </tr>
+        <tr>
+          <td>هل تواجه الأسرة أي ضغوطات حالية (اجتماعية/مادية/صحية/قانونية)؟</td>
+          <td colspan="3">
+            ( نعم <input type="radio" name="family_pressure" value="نعم"> )
+            ( لا <input type="radio" name="family_pressure" value="لا"> )
+          </td>
+        </tr>
+      </table>
+    </div>
     
-    <!-- القسم الثاني: معلومات التطور النمائي -->
-    <h2>معلومات التطور النمائي</h2>
-    <h3>أ. الحمل والولادة</h3>
-    <table>
-      <tr>
-        <td>عمر الأم أثناء الحمل:</td>
-        <td><input type="number" name="mother_age" required></td>
-      </tr>
-      <tr>
-        <td>هل كانت ظروف الحمل طبيعية؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="pregnancy_normal" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="pregnancy_normal" value="لا" required> لا</span>
-          &nbsp; وضح: <input type="text" name="pregnancy_normal_details">
-        </td>
-      </tr>
-      <tr>
-        <td>مدة الحمل:</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="pregnancy_duration" value="طبيعية" required> طبيعية</span>
-          <span class="radio-group"><input type="radio" name="pregnancy_duration" value="أقل من الطبيعي" required> أقل من الطبيعي</span>
-        </td>
-      </tr>
-      <tr>
-        <td>كيف كانت اتجاهات الأم نحو الحمل؟</td>
-        <td><textarea name="mother_attitude"></textarea></td>
-      </tr>
-      <tr>
-        <td>هل احتاج الطفل للحضانة بعد الولادة؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="nursery" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="nursery" value="لا" required> لا</span>
-        </td>
-      </tr>
-      <tr>
-        <td>نوع الولادة:</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="birth_type" value="طبيعية" required> طبيعية</span>
-          <span class="radio-group"><input type="radio" name="birth_type" value="قيصرية" required> قيصرية</span>
-          <span class="radio-group"><input type="radio" name="birth_type" value="متعسرة" required> متعسرة</span>
-          <span class="radio-group"><input type="radio" name="birth_type" value="مبكرة" required> مبكرة</span>
-        </td>
-      </tr>
-      <tr>
-        <td>هل واجه الطفل مشاكل نقص الأكسجين أثناء الولادة؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="oxygen_issue" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="oxygen_issue" value="لا" required> لا</span>
-        </td>
-      </tr>
-    </table>
-    <h3>ب. التطور النمائي بعد الولادة</h3>
-    <table>
-      <tr>
-        <td>هل تمكن الطفل من الرضاعة الطبيعية؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="breastfeeding" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="breastfeeding" value="لا" required> لا</span>
-          &nbsp; وضح: <input type="text" name="breastfeeding_details">
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">الفحوصات الطبية بعد الولادة:</td>
-      </tr>
-      <tr>
-        <td>فحص السمع - تاريخ التقييم:</td>
-        <td><input type="date" name="hearing_date"></td>
-      </tr>
-      <tr>
-        <td>فحص السمع - المشكلة إن وجدت:</td>
-        <td><textarea name="hearing_issue"></textarea></td>
-      </tr>
-      <tr>
-        <td>فحص النظر - تاريخ التقييم:</td>
-        <td><input type="date" name="vision_date"></td>
-      </tr>
-      <tr>
-        <td>فحص النظر - المشكلة إن وجدت:</td>
-        <td><textarea name="vision_issue"></textarea></td>
-      </tr>
-      <tr>
-        <td>تخطيط الدماغ - تاريخ التقييم:</td>
-        <td><input type="date" name="brain_date"></td>
-      </tr>
-      <tr>
-        <td>تخطيط الدماغ - المشكلة إن وجدت:</td>
-        <td><textarea name="brain_issue"></textarea></td>
-      </tr>
-      <tr>
-        <td>يرجى توضيح العمر الذي ظهرت فيه معالم النمو:</td>
-        <td><textarea name="development_milestones"></textarea></td>
-      </tr>
-    </table>
+    <!-- القسم 2: معلومات التطور النمائي -->
+    <div class="section">
+      <h2>معلومات التطور النمائي</h2>
+      <h3>أ. الحمل والولادة</h3>
+      <table>
+        <tr>
+          <td>عمر الأم أثناء الحمل:</td>
+          <td><input type="number" name="mother_age"></td>
+        </tr>
+        <tr>
+          <td>هل كانت ظروف الحمل طبيعية؟</td>
+          <td>
+            ( نعم <input type="radio" name="pregnancy_normal" value="نعم"> )
+            ( لا <input type="radio" name="pregnancy_normal" value="لا"> )
+            &nbsp; وضح: <input type="text" name="pregnancy_normal_details">
+          </td>
+        </tr>
+        <tr>
+          <td>مدة الحمل:</td>
+          <td>
+            ( طبيعية <input type="radio" name="pregnancy_duration" value="طبيعية"> )
+            ( أقل من الطبيعي <input type="radio" name="pregnancy_duration" value="أقل من الطبيعي"> )
+          </td>
+        </tr>
+        <tr>
+          <td>كيف كانت اتجاهات الأم نحو الحمل؟</td>
+          <td><textarea name="mother_attitude" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+        <tr>
+          <td>هل احتاج الطفل للحضانة بعد الولادة؟</td>
+          <td>
+            ( نعم <input type="radio" name="nursery" value="نعم"> )
+            ( لا <input type="radio" name="nursery" value="لا"> )
+          </td>
+        </tr>
+        <tr>
+          <td>نوع الولادة:</td>
+          <td>
+            ( طبيعية <input type="radio" name="birth_type" value="طبيعية"> )
+            ( قيصرية <input type="radio" name="birth_type" value="قيصرية"> )
+            ( متعسرة <input type="radio" name="birth_type" value="متعسرة"> )
+            ( مبكرة <input type="radio" name="birth_type" value="مبكرة"> )
+          </td>
+        </tr>
+        <tr>
+          <td>هل واجه الطفل مشاكل نقص الأكسجين أثناء الولادة؟</td>
+          <td>
+            ( نعم <input type="radio" name="oxygen_issue" value="نعم"> )
+            ( لا <input type="radio" name="oxygen_issue" value="لا"> )
+          </td>
+        </tr>
+      </table>
+      <h3>ب. التطور النمائي بعد الولادة</h3>
+      <table>
+        <tr>
+          <td>هل تمكن الطفل من الرضاعة الطبيعية؟</td>
+          <td>
+            ( نعم <input type="radio" name="breastfeeding" value="نعم"> )
+            ( لا <input type="radio" name="breastfeeding" value="لا"> )
+            &nbsp; وضح: <input type="text" name="breastfeeding_details">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>الفحوصات الطبية بعد الولادة:</strong></td>
+        </tr>
+        <tr>
+          <td>فحص السمع - تاريخ التقييم:</td>
+          <td><input type="date" name="hearing_date"></td>
+        </tr>
+        <tr>
+          <td>فحص السمع - المشكلة إن وجدت:</td>
+          <td><textarea name="hearing_issue" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+        <tr>
+          <td>فحص النظر - تاريخ التقييم:</td>
+          <td><input type="date" name="vision_date"></td>
+        </tr>
+        <tr>
+          <td>فحص النظر - المشكلة إن وجدت:</td>
+          <td><textarea name="vision_issue" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+        <tr>
+          <td>تخطيط الدماغ - تاريخ التقييم:</td>
+          <td><input type="date" name="brain_date"></td>
+        </tr>
+        <tr>
+          <td>تخطيط الدماغ - المشكلة إن وجدت:</td>
+          <td><textarea name="brain_issue" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+        <tr>
+          <td>يرجى توضيح العمر الذي ظهرت فيه معالم النمو<br/>(الحبو، الزحف، التدحرج، التقلب من طرف لآخر، التسنين، التقاط الأدوات وإفلاتها، المشي، الكلام، المناغاة، الأكل):</td>
+          <td><textarea name="development_milestones" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+      </table>
+    </div>
     
-    <!-- القسم الثالث: معلومات الجانب الطبي -->
-    <h2>معلومات الجانب الطبي</h2>
-    <table>
-      <tr>
-        <td>هل تلقى الطفل التطعيمات كاملة؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="vaccinations" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="vaccinations" value="لا" required> لا</span>
-        </td>
-      </tr>
-      <tr>
-        <td>هل يعاني الطفل من أمراض مزمنة (سكر، صرع، أنيميا، ربو...)?</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="chronic" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="chronic" value="لا" required> لا</span>
-          &nbsp; وضح: <input type="text" name="chronic_details">
-        </td>
-      </tr>
-      <tr>
-        <td>هل يعاني الطفل من حساسية تجاه أي نوع من أنواع الطعام؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="allergy" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="allergy" value="لا" required> لا</span>
-        </td>
-      </tr>
-      <tr>
-        <td>هل يتناول الطفل أي نوع من الأدوية أو المكملات الغذائية؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="medication" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="medication" value="لا" required> لا</span>
-        </td>
-      </tr>
-      <tr>
-        <td>الجرعة:</td>
-        <td><input type="text" name="medication_dose"></td>
-      </tr>
-      <tr>
-        <td>التكرار:</td>
-        <td><input type="text" name="medication_frequency"></td>
-      </tr>
-      <tr>
-        <td>هل يعاني الطفل من تكرار بعض المشاكل الطبية (اضطرابات الإخراج، طفح جلدي، ألم الأسنان، التهاب الأذن)؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="medical_recurrence" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="medical_recurrence" value="لا" required> لا</span>
-        </td>
-      </tr>
-    </table>
+    <!-- القسم 3: معلومات الجانب الطبي -->
+    <div class="section">
+      <h2>معلومات الجانب الطبي</h2>
+      <table>
+        <tr>
+          <td>هل تلقى الطفل التطعيمات كاملة؟</td>
+          <td>
+            ( نعم <input type="radio" name="vaccinations" value="نعم"> )
+            ( لا <input type="radio" name="vaccinations" value="لا"> )
+          </td>
+        </tr>
+        <tr>
+          <td>هل يعاني الطفل من أمراض مزمنة (مثل: سكر، صرع، أنيميا، ربو...)?</td>
+          <td>
+            ( نعم <input type="radio" name="chronic" value="نعم"> )
+            ( لا <input type="radio" name="chronic" value="لا"> )
+            &nbsp; وضح: <input type="text" name="chronic_details" placeholder="اكتب هنا">
+          </td>
+        </tr>
+        <tr>
+          <td>هل يعاني الطفل من حساسية تجاه أي نوع من أنواع الطعام؟</td>
+          <td>
+            ( نعم <input type="radio" name="allergy" value="نعم"> )
+            ( لا <input type="radio" name="allergy" value="لا"> )
+          </td>
+        </tr>
+        <tr>
+          <td>هل يتناول الطفل أي نوع من الأدوية أو المكملات الغذائية؟</td>
+          <td>
+            ( نعم <input type="radio" name="medication" value="نعم"> )
+            ( لا <input type="radio" name="medication" value="لا"> )
+          </td>
+        </tr>
+        <tr>
+          <td>الجرعة:</td>
+          <td><input type="text" name="medication_dose" placeholder="اكتب هنا"></td>
+        </tr>
+        <tr>
+          <td>التكرار:</td>
+          <td><input type="text" name="medication_frequency" placeholder="اكتب هنا"></td>
+        </tr>
+        <tr>
+          <td>هل يعاني الطفل من تكرار بعض المشاكل الطبية<br/>(مثل: اضطرابات الإخراج، طفح جلدي، ألم الأسنان، التهاب الأذن)؟</td>
+          <td>
+            ( نعم <input type="radio" name="medical_recurrence" value="نعم"> )
+            ( لا <input type="radio" name="medical_recurrence" value="لا"> )
+          </td>
+        </tr>
+      </table>
+    </div>
     
-    <!-- القسم الرابع: معلومات التشخيص والقياس النفسي -->
-    <h2>معلومات التشخيص والقياس النفسي</h2>
-    <table>
-      <tr>
-        <td>تاريخ التشخيص (إن وجد):</td>
-        <td><input type="date" name="diagnosis_date"></td>
-      </tr>
-      <tr>
-        <td>جهة التشخيص:</td>
-        <td><input type="text" name="diagnosis_agency"></td>
-      </tr>
-      <tr>
-        <td>هل سبق تشخيص الطفل؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="diagnosed" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="diagnosed" value="لا" required> لا</span>
-        </td>
-      </tr>
-      <tr>
-        <td>المقاييس التي تم تطبيقها والنتائج السابقة:</td>
-        <td><textarea name="diagnostic_scales"></textarea></td>
-      </tr>
-    </table>
+    <!-- القسم 4: معلومات التشخيص والقياس النفسي -->
+    <div class="section">
+      <h2>معلومات التشخيص والقياس النفسي</h2>
+      <table>
+        <tr>
+          <td>تاريخ التشخيص (إن وجد):</td>
+          <td><input type="date" name="diagnosis_date"></td>
+        </tr>
+        <tr>
+          <td>جهة التشخيص:</td>
+          <td><input type="text" name="diagnosis_agency" placeholder="اكتب هنا"></td>
+        </tr>
+        <tr>
+          <td>هل سبق تشخيص الطفل؟</td>
+          <td>
+            ( نعم <input type="radio" name="diagnosed" value="نعم"> )
+            ( لا <input type="radio" name="diagnosed" value="لا"> )
+          </td>
+        </tr>
+        <tr>
+          <td>المقاييس التي تم تطبيقها والنتائج السابقة<br/>(مثال: تحليل سلوك ABA، مقياس فاينلاند، وكسلر، ...):</td>
+          <td><textarea name="diagnostic_scales" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+      </table>
+    </div>
     
-    <!-- القسم الخامس: معلومات حول الشكوى الأساسية -->
-    <h2>معلومات حول الشكوى الأساسية</h2>
-    <table>
-      <tr>
-        <td>الشكوى الأساسية التي تتطلب التدخل:</td>
-        <td><textarea name="primary_complaint" required></textarea></td>
-      </tr>
-      <tr>
-        <td>هل لوحظت مشكلة مشابهة في الأسرة؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="family_issue" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="family_issue" value="لا" required> لا</span>
-        </td>
-      </tr>
-      <tr>
-        <td>إذا كانت الإجابة نعم، يرجى توضيح صلة القرابة:</td>
-        <td><textarea name="family_issue_details"></textarea></td>
-      </tr>
-      <tr>
-        <td>هل سبق وأجريت تدخلات علاجية للتعامل مع هذه المشكلة؟</td>
-        <td>
-          <span class="radio-group"><input type="radio" name="previous_intervention" value="نعم" required> نعم</span>
-          <span class="radio-group"><input type="radio" name="previous_intervention" value="لا" required> لا</span>
-        </td>
-      </tr>
-    </table>
+    <!-- القسم 5: معلومات حول الشكوى الأساسية -->
+    <div class="section">
+      <h2>معلومات حول الشكوى الأساسية</h2>
+      <table>
+        <tr>
+          <td>الشكوى الأساسية التي تتطلب التدخل:</td>
+          <td><textarea name="primary_complaint" placeholder="اكتب هنا" required></textarea></td>
+        </tr>
+        <tr>
+          <td>هل لوحظت مشكلة مشابهة في الأسرة؟</td>
+          <td>
+            ( نعم <input type="radio" name="family_issue" value="نعم"> )
+            ( لا <input type="radio" name="family_issue" value="لا"> )
+          </td>
+        </tr>
+        <tr>
+          <td>إذا كانت الإجابة نعم، يرجى توضيح صلة القرابة:</td>
+          <td><textarea name="family_issue_details" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+        <tr>
+          <td>هل سبق وأجريت تدخلات علاجية للتعامل مع هذه المشكلة؟</td>
+          <td>
+            ( نعم <input type="radio" name="previous_intervention" value="نعم"> )
+            ( لا <input type="radio" name="previous_intervention" value="لا"> )
+          </td>
+        </tr>
+      </table>
+    </div>
     
-    <!-- القسم السادس: معلومات طريقة تواصل الطفل -->
-    <h2>معلومات طريقة تواصل الطفل</h2>
-    <table>
-      <tr>
-        <td>كيف يتواصل طفلك عادةً؟ (اختر ما ينطبق):</td>
-        <td>
-          <span class="checkbox-group"><input type="checkbox" name="communication_style[]" value="العدوان"> العدوان</span>
-          <span class="checkbox-group"><input type="checkbox" name="communication_style[]" value="البكاء"> البكاء</span>
-          <span class="checkbox-group"><input type="checkbox" name="communication_style[]" value="الإيماءات"> الإيماءات</span>
-          <span class="checkbox-group"><input type="checkbox" name="communication_style[]" value="استخدام الصور"> استخدام الصور</span>
-          <span class="checkbox-group"><input type="checkbox" name="communication_style[]" value="الدفع"> الدفع</span>
-          <span class="checkbox-group"><input type="checkbox" name="communication_style[]" value="السحب"> السحب</span>
-          <span class="checkbox-group"><input type="checkbox" name="communication_style[]" value="الإشارة"> الإشارة</span>
-          <span class="checkbox-group"><input type="checkbox" name="communication_style[]" value="تواصل لفظي"> تواصل لفظي</span>
-        </td>
-      </tr>
-      <tr>
-        <td>ضع علامة على المهارة المتقنة لدى طفلك (اختر ما ينطبق):</td>
-        <td>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يقلد الحركات بسهولة"> يقلد الحركات بسهولة</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يقلد الأصوات"> يقلد الأصوات (الحروف/المقاطع الصوتية)</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يطلب المعززات"> يطلب المعززات</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يطلب المساعدة"> يطلب المساعدة</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يشير إلى شيء مرغوب من مسافة"> يشير إلى شيء مرغوب من مسافة</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يتبع إشارة اليد"> يتبع إشارة اليد / يشاركك النظر إلى شيء بعيد</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يتبع التعليمات البسيطة"> يتبع التعليمات البسيطة</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يتبع التعليمات المركبة"> يتبع التعليمات المركبة</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يتبع التعليمات بالتوقف"> يتبع التعليمات بالتوقف عن الشيء</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يتبع التعليمات للانتظار"> يتبع التعليمات للانتظار</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يرد على الأسئلة العامة"> يرد على الأسئلة العامة</span>
-          <span class="checkbox-group"><input type="checkbox" name="child_skill[]" value="يصدر تعليقات عفوية"> يصدر تعليقات عفوية</span>
-        </td>
-      </tr>
-    </table>
+    <!-- القسم 6: معلومات طريقة تواصل الطفل -->
+    <div class="section">
+      <h2>معلومات طريقة تواصل الطفل</h2>
+      <div class="form-field">
+        <label for="child_communication">كيف يتواصل طفلك عادةً؟</label>
+        <select id="child_communication" name="child_communication">
+          <option value="">اختر</option>
+          <option value="العدوان">العدوان</option>
+          <option value="البكاء">البكاء</option>
+          <option value="الإيماءات">الإيماءات</option>
+          <option value="استخدام الصور">استخدام الصور</option>
+          <option value="الدفع">الدفع</option>
+          <option value="السحب">السحب</option>
+          <option value="الإشارة">الإشارة</option>
+          <option value="تواصل لفظي">تواصل لفظي</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="child_skill">ضع علامة على المهارة المتقنة لدى طفلك:</label>
+        <select id="child_skill" name="child_skill">
+          <option value="">اختر</option>
+          <option value="يقلد الحركات بسهولة">يقلد الحركات بسهولة</option>
+          <option value="يقلد الأصوات">يقلد الأصوات (الحروف/المقاطع الصوتية)</option>
+          <option value="يطلب المعززات">يطلب المعززات</option>
+          <option value="يطلب المساعدة">يطلب المساعدة</option>
+          <option value="يشير إلى شيء مرغوب من مسافة">يشير إلى شيء مرغوب من مسافة</option>
+          <option value="يتبع إشارة اليد">يتبع إشارة اليد / يشاركك النظر إلى شيء بعيد</option>
+          <option value="يتبع التعليمات البسيطة">يتبع التعليمات البسيطة</option>
+          <option value="يتبع التعليمات المركبة">يتبع التعليمات المركبة</option>
+          <option value="يتبع التعليمات بالتوقف">يتبع التعليمات بالتوقف عن الشيء</option>
+          <option value="يتبع التعليمات للانتظار">يتبع التعليمات للانتظار</option>
+          <option value="يرد على الأسئلة العامة">يرد على الأسئلة العامة</option>
+          <option value="يصدر تعليقات عفوية">يصدر تعليقات عفوية</option>
+        </select>
+      </div>
+    </div>
     
-    <!-- القسم السابع: المظاهر السلوكية -->
-    <h2>المظاهر السلوكية</h2>
-    <table>
-      <tr>
-        <td>ضع علامة على السلوك الذي يظهر لطفلك أو سبق ظهوره وتوقفه في فترة زمنية سابقة:</td>
-        <td>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="نوبات الغضب"> نوبات الغضب</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="الركل"> الركل</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="الضرب"> الضرب</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="عض النفس أو الغير"> عض النفس أو الغير</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="خدش النفس أو الغير"> خدش النفس أو الغير</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="سلوكيات تكرارية"> سلوكيات تكرارية</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="الدوران"> الدوران</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="المشي ذهاباً وإياباً"> المشي ذهاباً وإياباً</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="تغطية الأذنين"> تغطية الأذنين</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="جز الأسنان"> جز الأسنان</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="سحب الشعر"> سحب الشعر</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="تلطيخ البراز"> تلطيخ البراز</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="أكل أدوات غير قابلة للأكل"> أكل أدوات غير قابلة للأكل</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="البصق"> البصق</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="الهروب"> الهروب</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="ضرب الرأس"> ضرب الرأس</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="الصراخ"> الصراخ</span>
-          <span class="checkbox-group"><input type="checkbox" name="behavior[]" value="نتف الجلد"> نتف الجلد</span>
-          <span class="checkbox-group">أخرى: <input type="text" name="behavior_other_text"></span>
-        </td>
-      </tr>
-    </table>
+    <!-- القسم 7: المظاهر السلوكية -->
+    <div class="section">
+      <h2>المظاهر السلوكية</h2>
+      <div class="form-field">
+        <label>ضع علامة على السلوك الذي يظهر لطفلك أو سبق ظهوره وتوقف في فترة زمنية سابقة:</label>
+        <div class="options-group" style="display: block; text-align: right;">
+          <label><input type="checkbox" name="behavior[]" value="نوبات الغضب"> نوبات الغضب</label><br>
+          <label><input type="checkbox" name="behavior[]" value="الركل"> الركل</label><br>
+          <label><input type="checkbox" name="behavior[]" value="الضرب"> الضرب</label><br>
+          <label><input type="checkbox" name="behavior[]" value="عض النفس أو الغير"> عض النفس أو الغير</label><br>
+          <label><input type="checkbox" name="behavior[]" value="خدش النفس أو الغير"> خدش النفس أو الغير</label><br>
+          <label><input type="checkbox" name="behavior[]" value="سلوكيات تكرارية"> سلوكيات تكرارية</label><br>
+          <label><input type="checkbox" name="behavior[]" value="الدوران"> الدوران</label><br>
+          <label><input type="checkbox" name="behavior[]" value="المشي ذهاباً وإياباً"> المشي ذهاباً وإياباً</label><br>
+          <label><input type="checkbox" name="behavior[]" value="تغطية الأذنين"> تغطية الأذنين</label><br>
+          <label><input type="checkbox" name="behavior[]" value="جز الأسنان"> جز الأسنان</label><br>
+          <label><input type="checkbox" name="behavior[]" value="سحب الشعر"> سحب الشعر</label><br>
+          <label><input type="checkbox" name="behavior[]" value="تلطيخ البراز"> تلطيخ البراز</label><br>
+          <label><input type="checkbox" name="behavior[]" value="أكل أدوات غير قابلة للأكل"> أكل أدوات غير قابلة للأكل</label><br>
+          <label><input type="checkbox" name="behavior[]" value="البصق"> البصق</label><br>
+          <label><input type="checkbox" name="behavior[]" value="الهروب"> الهروب</label><br>
+          <label><input type="checkbox" name="behavior[]" value="لاف الممتلكات"> لاف الممتلكات</label><br>
+          <label><input type="checkbox" name="behavior[]" value="ضرب الرأس"> ضرب الرأس</label><br>
+          <label><input type="checkbox" name="behavior[]" value="الصراخ"> الصراخ</label><br>
+          <label><input type="checkbox" name="behavior[]" value="نتف الجلد"> نتف الجلد</label><br>
+          <label>أخرى: <input type="text" name="behavior_other" placeholder="اكتب هنا"></label>
+        </div>
+      </div>
+    </div>
     
-    <!-- القسم الثامن: المعالجة الحسية -->
-    <h2>المعالجة الحسية</h2>
-    <table>
-      <tr>
-        <td>حدد كل ما ينطبق من المظاهر التالية:</td>
-        <td>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="ينزعج من تغيير الروتين"> ينزعج من تغيير الروتين</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يغضب معظم الوقت ولا يمكن تهدئته"> يغضب معظم الوقت ولا يمكن تهدئته</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="سوء تخطيط وتنظيم السلوك"> سوء تخطيط وتنظيم السلوك</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="على تحمل الإحباط غير قادر"> على تحمل الإحباط غير قادر</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يظهر ادراك للمثيرات الحسية"> يظهر ادراك للمثيرات الحسية</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يرفض الاستجابة للمس والتواصل البدني"> يرفض الاستجابة للمس والتواصل البدني</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يمشي على أطراف الأصابع"> يمشي على أطراف الأصابع</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="عضلاته ضعيفة"> عضلاته ضعيفة</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يجد صعوبة في الدخول في النوم"> يجد صعوبة في الدخول في النوم</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يرفض لون معين/قوام معين/صعوبة في المضغ أو تقبل الطعام"> يرفض لون معين/قوام معين/صعوبة في المضغ أو تقبل الطعام</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يزداد حماسًا مع ألعاب الحركة"> يزداد حماسًا مع ألعاب الحركة</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يميل للألعاب التي تتطلب ضغطًا شديدًا"> يميل للألعاب التي تتطلب ضغطًا شديدًا</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يتسلق ويميل بجسمه من الأماكن المرتفعة"> يتسلق ويميل بجسمه من الأماكن المرتفعة</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="ينفعل عند سماع الأصوات العالية"> ينفعل عند سماع الأصوات العالية</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="لا يلاحظ اتساخ اليدين"> لا يلاحظ اتساخ اليدين</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يسيل اللعاب بشكل مفرط"> يسيل اللعاب بشكل مفرط</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="sensory_processing[]" value="يرفض او متعلق بالماء"> يرفض او متعلق بالماء</span>
-        </td>
-      </tr>
-      <tr>
-        <td>هل يظهر طفلك سلوكيات سلبية عند أداء الأنشطة الروتينية اليومية المتعلقة بـ:</td>
-        <td>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="استخدام الحمام"> استخدام الحمام</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="تبديل الحفاض"> تبديل الحفاض</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="قص الاظافر"> قص الاظافر</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="الاستحمام"> الاستحمام</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="تبديل الملابس"> تبديل الملابس</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="قص الشعر"> قص الشعر</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="غسل الأسنان"> غسل الأسنان</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="تناول الطعام"> تناول الطعام</span><br>
-          <span class="checkbox-group"><input type="checkbox" name="negative_behaviors[]" value="أخرى"> أخرى: <input type="text" name="negative_behaviors_other"></span>
-        </td>
-      </tr>
-    </table>
-</div>
-
-<!-- القسم التاسع: السلوكيات الاجتماعية -->
-<div>
-  <h2>السلوكيات الاجتماعية</h2>
-  <table>
-    <tr>
-      <td>هل يتقبل وجود الأشخاص بجانبه؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="social_presence" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="social_presence" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يدرك الطفل غياب الوالدين؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="parent_absence" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="parent_absence" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يظهر انفعالات تجاه الأشخاص الآخرين؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="social_emotion" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="social_emotion" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتفاعل مع لعب الكبار معه؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="adult_play" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="adult_play" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يلعب مع إخوته ويتفاعل معهم؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="sibling_play" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="sibling_play" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يرد التحية ويبادر بها؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="greeting" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="greeting" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يلعب مع أقرانه ويتبع تعليمات اللعب؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="peer_play" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="peer_play" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتواجد مع الأقران في منطقة اللعب ولكن لا يشارك معهم؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="peer_presence" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="peer_presence" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يشارك في الألعاب التظاهرية (ألعاب الخيال)؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="imaginative_play" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="imaginative_play" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يقلد طريقة اللعب عند مشاهدة الأقران بدون توجيه؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="imitation_without" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="imitation_without" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يقلد طريقة اللعب عند مشاهدة الأقران مع توجيه؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="imitation_with" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="imitation_with" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من التعامل في الأماكن العامة؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="public_behavior" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="public_behavior" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يلتزم بالآداب الاجتماعية؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="social_etiquette" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="social_etiquette" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يظهر وعيًا للتغيرات في البيئة الاجتماعية؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="social_awareness" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="social_awareness" value="لا" required> لا</span>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<!-- القسم العاشر: الرعاية الذاتية -->
-<div>
-  <h2>الرعاية الذاتية</h2>
-  <table>
-    <tr>
-      <td>هل يتمكن من لبس البنطال/القميص بشكل مستقل؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_dressing" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_dressing" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من خلع البنطال/القميص بشكل مستقل؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_undressing" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_undressing" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من فتح/اغلاق الأزرار؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_buttons" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_buttons" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من فتح/اغلاق السحاب؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_zipper" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_zipper" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يدرك في حال اتساخ الحفاض؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_diaper" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_diaper" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من القاء جاف لمدة تصل لساعتين متواصلة؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_hold" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_hold" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من تنظيف نفسه بعد استخدام الحمام؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_clean" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_clean" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من الذهاب لدورة المياه ولكنه يحتاج لمساعدة؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_toilet" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_toilet" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من غسل الأسنان بشكل مستقل؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_brush" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_brush" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من تجفيف الأسنان بشكل مستقل؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_dry" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_dry" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من غسل الوجه واليدين؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_face_hands" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_face_hands" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من الأكل بشكل مستقل؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_eating" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_eating" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من الاستحمام بشكل مستقل؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_shower" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_shower" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من التنقل من مكان لآخر بشكل مستقل؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_mobility" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_mobility" value="لا" required> لا</span>
-      </td>
-    </tr>
-    <tr>
-      <td>هل يتمكن من العناية بممتلكاته الشخصية؟</td>
-      <td>
-        <span class="radio-group"><input type="radio" name="self_care_personal" value="نعم" required> نعم</span>
-        <span class="radio-group"><input type="radio" name="self_care_personal" value="لا" required> لا</span>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<!-- القسم الحادي عشر: التدخلات السابقة -->
-<div>
-  <h2>التدخلات السابقة</h2>
-  <table>
-    <tr>
-      <td>وضح التدخلات العلاجية السابقة للطفل (اختر ما ينطبق):</td>
-      <td>
-        <span class="checkbox-group"><input type="checkbox" name="previous_interventions[]" value="جلسات تخاطب"> جلسات تخاطب</span><br>
-        <span class="checkbox-group"><input type="checkbox" name="previous_interventions[]" value="تعديل سلوك"> تعديل سلوك</span><br>
-        <span class="checkbox-group"><input type="checkbox" name="previous_interventions[]" value="تنمية مهارات"> تنمية مهارات</span><br>
-        <span class="checkbox-group"><input type="checkbox" name="previous_interventions[]" value="تحليل سلوكي"> تحليل سلوكي</span><br>
-        <span class="checkbox-group"><input type="checkbox" name="previous_interventions[]" value="علاج طبيعي"> علاج طبيعي</span><br>
-        <span class="checkbox-group"><input type="checkbox" name="previous_interventions[]" value="علاج وظيفي"> علاج وظيفي</span><br>
-        <span class="checkbox-group"><input type="checkbox" name="previous_interventions[]" value="جلسات جماعية"> جلسات جماعية</span><br>
-        <span class="checkbox-group"><input type="checkbox" name="previous_interventions[]" value="جلسات نفسية"> جلسات نفسية</span>
-      </td>
-    </tr>
-    <tr>
-      <td>وضح النتائج من التدخلات السابقة:</td>
-      <td><textarea name="intervention_results"></textarea></td>
-    </tr>
-    <tr>
-      <td>في حال وجود خطط حالية يتم العمل عليها، يرجى توضيحها مع توضيح الجهة القائمة:</td>
-      <td><textarea name="current_plans"></textarea></td>
-    </tr>
-    <tr>
-      <td>الجهة القائمة:</td>
-      <td><input type="text" name="current_agency"></td>
-    </tr>
-    <tr>
-      <td>رقم التواصل للجهة القائمة:</td>
-      <td><input type="tel" name="current_agency_contact"></td>
-    </tr>
-    <tr>
-      <td>الأهداف الأساسية التي يتم العمل عليها في الفترة الحالية:</td>
-      <td><textarea name="current_goals"></textarea></td>
-    </tr>
-  </table>
-</div>
-
-<!-- القسم الثاني عشر: توقعات الأسرة -->
-<div>
-  <h2>توقعات الأسرة</h2>
-  <table>
-    <tr>
-      <td>حدد الأهداف الأساسية التي ترغب الأسرة بالوصول إليها خلال الثلاثة أشهر القادمة مرتبة بالأولوية:</td>
-      <td><textarea name="family_expectations" required></textarea></td>
-    </tr>
-  </table>
-</div>
-
-<!-- القسم الثالث عشر: المعززات -->
-<div>
-  <h2>المعززات</h2>
-  <table>
-    <tr>
-      <td>وضح المعززات المفضلة للطفل مع ترتيبها وفق مدى فاعليتها للطفل:</td>
-      <td><textarea name="reinforcements" required></textarea></td>
-    </tr>
-  </table>
-</div>
-
-<button type="submit">إرسال</button>
+    <!-- القسم 8: المعالجة الحسية -->
+    <div class="section">
+      <h2>المعالجة الحسية</h2>
+      <div class="form-field">
+        <label>حدد كل ما ينطبق من المظاهر التالية:</label>
+        <div class="options-group" style="display: block; text-align: right;">
+          <label><input type="checkbox" name="sensory[]" value="الروتين ينزعج من تغيير"> الروتين ينزعج من تغيير</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يغضب معظم الوقت ولا يمكن تهدئته"> يغضب معظم الوقت ولا يمكن تهدئته</label><br>
+          <label><input type="checkbox" name="sensory[]" value="سوء تخطيط وتنظيم السلوك"> سوء تخطيط وتنظيم السلوك</label><br>
+          <label><input type="checkbox" name="sensory[]" value="على تحمل الإحباط غير قادر"> على تحمل الإحباط غير قادر</label><br>
+          <label><input type="checkbox" name="sensory[]" value="لا يظهر إدراك للمثيرات الحسية"> لا يظهر إدراك للمثيرات الحسية</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يرفض الاستجابة للمس والتواصل البدني"> يرفض الاستجابة للمس والتواصل البدني</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يمشي على أطراف الأصابع"> يمشي على أطراف الأصابع</label><br>
+          <label><input type="checkbox" name="sensory[]" value="عضلاته ضعيفة"> عضلاته ضعيفة</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يجد صعوبة في الدخول في النوم"> يجد صعوبة في الدخول في النوم</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يرفض لون معين/قوام معين/صعوبة المضغ/رفض رائحة الطعام"> يرفض لون معين/قوام معين/صعوبة في المضغ أو تقبل الطعام</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يزداد حماسًا مع ألعاب الحركة"> يزداد حماسًا مع ألعاب الحركة</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يميل للألعاب التي تتطلب ضغطًا شديدًا"> يميل للألعاب التي تتطلب ضغطًا شديدًا</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يتسلق ويميل بجسمه من الأماكن المرتفعة"> يتسلق ويميل بجسمه من الأماكن المرتفعة</label><br>
+          <label><input type="checkbox" name="sensory[]" value="ينفعل عند سماع الأصوات العالية"> ينفعل عند سماع الأصوات العالية</label><br>
+          <label><input type="checkbox" name="sensory[]" value="لا يلاحظ اتساخ اليدين"> لا يلاحظ اتساخ اليدين</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يسيل اللعاب بشكل مفرط (بعد التسنين)"> يسيل اللعاب بشكل مفرط (بعد التسنين)</label><br>
+          <label><input type="checkbox" name="sensory[]" value="يرفض أو متعلق بالماء"> يرفض أو متعلق بالماء</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- القسم 9: السلوكيات الاجتماعية -->
+    <div class="section">
+      <h2>السلوكيات الاجتماعية</h2>
+      <div class="form-field">
+        <label>هل يتقبل وجود الأشخاص بجانبه؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="social_presence" value="نعم"> نعم</label>
+          <label><input type="radio" name="social_presence" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يدرك الطفل غياب الوالدين؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="parent_absence" value="نعم"> نعم</label>
+          <label><input type="radio" name="parent_absence" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يظهر انفعالات تجاه الأشخاص الآخرين؟ (مدرك للتغير)</label>
+        <div class="options-group">
+          <label><input type="radio" name="social_emotion" value="نعم"> نعم</label>
+          <label><input type="radio" name="social_emotion" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتفاعل مع لعب الكبار معه؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="adult_play" value="نعم"> نعم</label>
+          <label><input type="radio" name="adult_play" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يلعب مع إخوته ويتفاعل معهم؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="sibling_play" value="نعم"> نعم</label>
+          <label><input type="radio" name="sibling_play" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يرد التحية ويبادر بها؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="greeting" value="نعم"> نعم</label>
+          <label><input type="radio" name="greeting" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يلعب مع أقرانه ويتبع تعليمات اللعب؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="peer_play" value="نعم"> نعم</label>
+          <label><input type="radio" name="peer_play" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتواجد مع الأقران في منطقة اللعب ولكن لا يشاركهم؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="peer_presence" value="نعم"> نعم</label>
+          <label><input type="radio" name="peer_presence" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يشارك في الألعاب التظاهرية (ألعاب الخيال)؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="imaginative_play" value="نعم"> نعم</label>
+          <label><input type="radio" name="imaginative_play" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يقلد طريقة اللعب عند مشاهدة الأقران بدون توجيه؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="imitation_without" value="نعم"> نعم</label>
+          <label><input type="radio" name="imitation_without" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يقلد طريقة اللعب عند مشاهدة الأقران مع توجيه؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="imitation_with" value="نعم"> نعم</label>
+          <label><input type="radio" name="imitation_with" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من التعامل في الأماكن العامة؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="public_behavior" value="نعم"> نعم</label>
+          <label><input type="radio" name="public_behavior" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يلتزم بالآداب الاجتماعية؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="social_etiquette" value="نعم"> نعم</label>
+          <label><input type="radio" name="social_etiquette" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يظهر وعيًا للتغيرات في البيئة الاجتماعية؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="social_awareness" value="نعم"> نعم</label>
+          <label><input type="radio" name="social_awareness" value="لا"> لا</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- القسم 10: الرعاية الذاتية -->
+    <div class="section">
+      <h2>الرعاية الذاتية</h2>
+      <div class="form-field">
+        <label>هل يتمكن من لبس البنطال/القميص بشكل مستقل؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_dressing" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_dressing" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من خلع البنطال/القميص بشكل مستقل؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_undressing" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_undressing" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من فتح/إغلاق الأزرار؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_buttons" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_buttons" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من فتح/إغلاق السحاب؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_zipper" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_zipper" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يدرك في حال اتساخ الحفاض؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_diaper" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_diaper" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من القاء جاف لمدة تصل لساعتين متواصلة؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_hold" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_hold" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من تنظيف نفسه بعد استخدام الحمام؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_clean" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_clean" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من الذهاب لدورة المياه ولكنه يحتاج لمساعدة؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_toilet" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_toilet" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من غسل الأسنان بشكل مستقل؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_brush" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_brush" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من تجفيف الأسنان بشكل مستقل؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_dry" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_dry" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من غسل الوجه واليدين؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_face_hands" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_face_hands" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من الأكل بشكل مستقل؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_eating" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_eating" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من الاستحمام بشكل مستقل؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_shower" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_shower" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من التنقل من مكان لآخر بشكل مستقل؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_mobility" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_mobility" value="لا"> لا</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>هل يتمكن من العناية بممتلكاته الشخصية؟</label>
+        <div class="options-group">
+          <label><input type="radio" name="self_care_personal" value="نعم"> نعم</label>
+          <label><input type="radio" name="self_care_personal" value="لا"> لا</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- القسم 11: التدخلات السابقة -->
+    <div class="section">
+      <h2>التدخلات السابقة</h2>
+      <table>
+        <tr>
+          <td>وضح التدخلات العلاجية السابقة للطفل (اختر ما ينطبق):</td>
+          <td>
+            <div class="options-group" style="display: block; text-align: right;">
+              <label><input type="checkbox" name="previous_interventions[]" value="جلسات تخاطب"> جلسات تخاطب</label><br>
+              <label><input type="checkbox" name="previous_interventions[]" value="تعديل سلوك"> تعديل سلوك</label><br>
+              <label><input type="checkbox" name="previous_interventions[]" value="تنمية مهارات"> تنمية مهارات</label><br>
+              <label><input type="checkbox" name="previous_interventions[]" value="تحليل سلوك ABA"> تحليل سلوك ABA</label><br>
+              <label><input type="checkbox" name="previous_interventions[]" value="علاج طبيعي"> علاج طبيعي</label><br>
+              <label><input type="checkbox" name="previous_interventions[]" value="علاج وظيفي"> علاج وظيفي</label><br>
+              <label><input type="checkbox" name="previous_interventions[]" value="جلسات جماعية"> جلسات جماعية</label><br>
+              <label><input type="checkbox" name="previous_interventions[]" value="جلسات نفسية"> جلسات نفسية</label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>وضح النتائج من التدخلات السابقة:</td>
+          <td><textarea name="intervention_results" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+        <tr>
+          <td>في حال وجود خطط حالية يتم العمل عليها، يرجى توضيحها مع توضيح الجهة القائمة:</td>
+          <td><textarea name="current_plans" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+        <tr>
+          <td>الجهة القائمة:</td>
+          <td><input type="text" name="current_agency" placeholder="اكتب هنا"></td>
+        </tr>
+        <tr>
+          <td>رقم التواصل للجهة القائمة:</td>
+          <td><input type="tel" name="current_agency_contact" placeholder="اكتب هنا"></td>
+        </tr>
+        <tr>
+          <td>الأهداف الأساسية التي يتم العمل عليها في الفترة الحالية:</td>
+          <td><textarea name="current_goals" placeholder="اكتب هنا"></textarea></td>
+        </tr>
+      </table>
+    </div>
+    
+    <!-- القسم 12: توقعات الأسرة -->
+    <div class="section">
+      <h2>توقعات الأسرة</h2>
+      <div class="form-field">
+        <label for="family_expectations">حدد الأهداف الأساسية التي ترغب الأسرة بالوصول إليها خلال الثلاثة أشهر القادمة مرتبة بالأولوية:</label>
+        <textarea id="family_expectations" name="family_expectations" placeholder="اكتب هنا"></textarea>
+      </div>
+    </div>
+    
+    <!-- القسم 13: المعززات -->
+    <div class="section">
+      <h2>المعززات</h2>
+      <div class="form-field">
+        <label for="reinforcements">وضح المعززات المفضلة للطفل مع ترتيبها وفق مدى فاعليتها:</label>
+        <textarea id="reinforcements" name="reinforcements" placeholder="اكتب هنا"></textarea>
+      </div>
+    </div>
+    
+    <button type="submit">إرسال</button>
   </form>
 </body>
 </html>
